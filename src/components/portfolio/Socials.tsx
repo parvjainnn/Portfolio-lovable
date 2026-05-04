@@ -95,6 +95,11 @@ export function Socials() {
             );
           })}
         </div>
+
+        <footer className="mt-20 flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground border-t border-border pt-8">
+          <p>© {new Date().getFullYear()} Parv Jain. Crafted with care.</p>
+          <p className="font-mono text-xs">Designed & built by Parv.</p>
+        </footer>
       </div>
     </section>
   );
