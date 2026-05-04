@@ -30,27 +30,27 @@ const socials = [
 
 export function Socials() {
   return (
-    <section id="socials" className="relative py-24 sm:py-28">
+    <section id="contact" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
           <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">
-            Connect
+            04 — Connect
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-            Find me <span className="text-gradient">around the web</span>
+            Let's <span className="text-gradient">connect</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            I'm active on these platforms — feel free to reach out, follow, or check my work.
+            Open to internships, collaborations, and good conversations. Find me on:
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
           {socials.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -95,6 +95,11 @@ export function Socials() {
             );
           })}
         </div>
+
+        <footer className="mt-20 flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground border-t border-border pt-8">
+          <p>© {new Date().getFullYear()} Parv Jain. Crafted with care.</p>
+          <p className="font-mono text-xs">Designed & built by Parv.</p>
+        </footer>
       </div>
     </section>
   );

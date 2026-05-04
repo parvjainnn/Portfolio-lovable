@@ -28,10 +28,11 @@ export function Navbar() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-3" : "py-5"}`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-background border-b transition-shadow duration-300 ${scrolled ? "border-border shadow-sm" : "border-transparent"}`}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <nav className={`flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-300 ${scrolled ? "glass shadow-elegant" : ""}`}>
+        <nav className="flex items-center justify-between py-3">
+
           <a href="#home" className="flex items-center gap-2 font-display font-bold text-lg" data-cursor>
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-gradient-primary shadow-glow animate-glow" />
             <span className="tracking-tight">parv<span className="text-gradient">.</span></span>
