@@ -4,7 +4,6 @@ import { Hero } from "@/components/portfolio/Hero";
 import { About } from "@/components/portfolio/About";
 import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
-import { Contact } from "@/components/portfolio/Contact";
 import { Socials } from "@/components/portfolio/Socials";
 import { CursorGlow } from "@/components/portfolio/CursorGlow";
 
@@ -28,7 +27,6 @@ function Index() {
       <Skills />
       <Projects />
       <Socials />
-      <Contact />
     </main>
   );
 }
