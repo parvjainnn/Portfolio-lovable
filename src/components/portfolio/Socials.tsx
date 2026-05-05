@@ -96,6 +96,20 @@ export function Socials() {
           })}
         </div>
 
+        <div className="mt-12 flex justify-center">
+          <a
+            href="/resume.pdf"
+            download
+            target="_blank"
+            rel="noreferrer noopener"
+            data-cursor
+            className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:translate-y-[-2px] hover:opacity-95 transition-all"
+          >
+            <Download size={18} className="group-hover:-translate-y-0.5 transition-transform" />
+            Download Resume
+          </a>
+        </div>
+
         <footer className="mt-20 flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground border-t border-border pt-8">
           <p>© {new Date().getFullYear()} Parv Jain. Crafted with care.</p>
           <p className="font-mono text-xs">Designed & built by Parv.</p>
