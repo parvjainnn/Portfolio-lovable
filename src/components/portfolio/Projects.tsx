@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import { Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { TiltCard } from "./TiltCard";
 import p1 from "@/assets/project-1.jpg";
@@ -6,9 +6,27 @@ import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
 
 const projects = [
-  { title: "Smart Web Application", description: "A responsive web app solving real-world problems with a clean, intuitive interface.", tech: ["React", "JavaScript", "CSS"], image: p1 },
-  { title: "Data Analysis Tool", description: "A Python-powered tool that turns raw data into clear, actionable insights.", tech: ["Python", "Pandas", "Matplotlib"], image: p2 },
-  { title: "Portfolio Website", description: "A personal branding website with modern UI, smooth motion, and a focus on craft.", tech: ["React", "R3F", "Tailwind"], image: p3 },
+  {
+    title: "Diabetes Prediction Model",
+    description: "Machine learning model that predicts diabetes based on health parameters with high accuracy and clean preprocessing.",
+    tech: ["Python", "scikit-learn", "Pandas"],
+    image: p1,
+    href: "https://github.com/parvjainnn/Diabetes_Prediction_Model",
+  },
+  {
+    title: "Plant Disease Detection",
+    description: "AI-based system that detects plant diseases from leaf images using deep learning and image processing.",
+    tech: ["Python", "TensorFlow", "CNN"],
+    image: p2,
+    href: "https://github.com/parvjainnn/Plant_Disease_Detection",
+  },
+  {
+    title: "HealthTwin AI",
+    description: "AI-powered health assistant providing personalized insights, predictions, and a digital twin of your wellbeing.",
+    tech: ["Python", "AI", "LLM"],
+    image: p3,
+    href: "https://github.com/parvjainnn/HealthTwin_AI",
+  },
 ];
 
 export function Projects() {
