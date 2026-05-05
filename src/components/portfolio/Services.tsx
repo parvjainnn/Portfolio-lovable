@@ -10,7 +10,7 @@ const services = [
     description:
       "A creative venture crafting customized gifts, sculpted statues, and one-of-a-kind artistic products — built on creativity, quality, and customer delight.",
     highlights: ["Custom Gifts", "Sculpted Statues", "Artistic Products", "Personalization"],
-    cta: { label: "Explore Products", href: "#" },
+    cta: { label: "Visit Store", href: "https://parvgift.lovable.app/" },
     accent: "from-fuchsia-500/20 via-primary/10 to-transparent",
     iconRing: "from-fuchsia-500 to-primary",
   },

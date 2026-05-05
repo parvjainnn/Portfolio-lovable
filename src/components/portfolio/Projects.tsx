@@ -7,11 +7,11 @@ import p3 from "@/assets/project-3.jpg";
 
 const projects = [
   {
-    title: "Diabetes Prediction Model",
-    description: "Machine learning model that predicts diabetes based on health parameters with high accuracy and clean preprocessing.",
-    tech: ["Python", "scikit-learn", "Pandas"],
+    title: "Airbnb Data Analysis",
+    description: "Exploratory data analysis of Airbnb listings — uncovering pricing trends, location insights, and host patterns through clean visualizations.",
+    tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
     image: p1,
-    href: "https://github.com/parvjainnn/Diabetes_Prediction_Model",
+    href: "https://github.com/parvjainnn/Airbnb_DataAnalysis",
   },
   {
     title: "Plant Disease Detection",

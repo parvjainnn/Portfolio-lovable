@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Code2, Download } from "lucide-react";
+import { Github, Linkedin, Code2, Download, Twitter, Instagram } from "lucide-react";
 
 const socials = [
   {
@@ -26,6 +26,22 @@ const socials = [
     color: "#ffffff",
     bg: "#0A66C2",
   },
+  {
+    name: "X (Twitter)",
+    handle: "@parvjainnn",
+    href: "https://x.com/parvjainnn",
+    icon: Twitter,
+    color: "#ffffff",
+    bg: "#000000",
+  },
+  {
+    name: "Instagram",
+    handle: "@parvjainnn",
+    href: "https://instagram.com/parvjainnn",
+    icon: Instagram,
+    color: "#ffffff",
+    bg: "#E1306C",
+  },
 ];
 
 export function Socials() {
@@ -50,7 +66,7 @@ export function Socials() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
           {socials.map((s, i) => {
             const Icon = s.icon;
             return (
