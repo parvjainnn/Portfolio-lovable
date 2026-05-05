@@ -68,11 +68,15 @@ export function Projects() {
                     ))}
                   </div>
                   <div className="flex gap-2 mt-5">
-                    <a href="https://github.com/" data-cursor target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs px-3 py-2 rounded-full bg-foreground/5 hover:bg-foreground/10 border border-border transition">
-                      <Github size={14} /> Code
-                    </a>
-                    <a href="#" data-cursor className="inline-flex items-center gap-1.5 text-xs px-3 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 transition">
-                      Live <ArrowUpRight size={14} />
+                    <a
+                      href={p.href}
+                      data-cursor
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
+                    >
+                      <Github size={14} />
+                      View on GitHub
                     </a>
                   </div>
                 </div>
