@@ -52,9 +52,9 @@ export function Hero() {
               View my work
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="/resume.pdf" data-cursor className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 font-medium hover:bg-foreground/5 transition">
+            <a href="/resume.pdf" download data-cursor target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 font-medium hover:bg-foreground/5 hover:shadow-glow transition">
               <Download size={18} />
-              Resume
+              Download Resume
             </a>
           </div>
 
