@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "@/hooks/useTheme";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -14,7 +13,6 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -32,7 +30,6 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <nav className="flex items-center justify-between py-3">
-
           <a href="#home" className="flex items-center gap-2 font-display font-bold text-lg" data-cursor>
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-gradient-primary shadow-glow animate-glow" />
             <span className="tracking-tight">parv<span className="text-gradient">.</span></span>
@@ -49,30 +46,9 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={toggle}
-              aria-label="Toggle theme"
-              data-cursor
-              className="relative h-9 w-9 rounded-full glass flex items-center justify-center hover:bg-foreground/5 transition overflow-hidden"
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={theme}
-                  initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
-                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                  exit={{ rotate: 90, opacity: 0, scale: 0.6 }}
-                  transition={{ duration: 0.25 }}
-                  className="absolute"
-                >
-                  {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-                </motion.span>
-              </AnimatePresence>
-            </button>
-
             <a href="#contact" data-cursor className="hidden sm:inline-flex items-center rounded-full bg-gradient-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition shadow-glow">
               Let's talk
             </a>
-
             <button aria-label="Menu" onClick={() => setOpen((o) => !o)} className="md:hidden p-2 rounded-lg hover:bg-foreground/5">
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>

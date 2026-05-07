@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail, Twitter, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero3D = lazy(() => import("./Hero3D").then((m) => ({ default: m.Hero3D })));
@@ -47,6 +47,10 @@ export function Hero() {
             and human digital experiences — where logic meets design.
           </p>
 
+          <p className="mt-4 text-base text-foreground/80 font-medium">
+            Let's connect and build something impactful.
+          </p>
+
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <a href="#projects" data-cursor className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:translate-y-[-2px] transition-all">
               View my work
@@ -58,10 +62,26 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 flex items-center gap-5 text-muted-foreground">
-            <a href="https://github.com/" data-cursor aria-label="GitHub" className="hover:text-foreground transition" target="_blank" rel="noreferrer"><Github size={20} /></a>
-            <a href="https://linkedin.com/" data-cursor aria-label="LinkedIn" className="hover:text-foreground transition" target="_blank" rel="noreferrer"><Linkedin size={20} /></a>
-            <a href="mailto:example@email.com" data-cursor aria-label="Email" className="hover:text-foreground transition"><Mail size={20} /></a>
+          <div className="mt-10 flex items-center gap-3">
+            {[
+              { href: "mailto:preeti.parv17@gmail.com", icon: Mail, label: "Email" },
+              { href: "https://github.com/parvjainnn", icon: Github, label: "GitHub" },
+              { href: "https://www.linkedin.com/in/parvjainnn", icon: Linkedin, label: "LinkedIn" },
+              { href: "https://x.com/parvjainnn", icon: Twitter, label: "X" },
+              { href: "https://instagram.com/parvjainnn", icon: Instagram, label: "Instagram" },
+            ].map(({ href, icon: Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                data-cursor
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group relative h-11 w-11 inline-flex items-center justify-center rounded-full glass text-muted-foreground hover:text-foreground hover:shadow-glow hover:-translate-y-0.5 transition-all"
+              >
+                <Icon size={18} />
+              </a>
+            ))}
           </div>
         </motion.div>
 
