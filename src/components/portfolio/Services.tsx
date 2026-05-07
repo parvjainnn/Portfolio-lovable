@@ -114,16 +114,27 @@ export function Services() {
                 </div>
 
                 <div className="mt-auto pt-6 relative">
-                  <a
-                    href={s.cta.href}
-                    data-cursor
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
-                  >
-                    {s.cta.label}
-                    <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </a>
+                  {s.cta.external ? (
+                    <a
+                      href={s.cta.href}
+                      data-cursor
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
+                    >
+                      {s.cta.label}
+                      <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={s.cta.href}
+                      data-cursor
+                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
+                    >
+                      {s.cta.label}
+                      <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </Link>
+                  )}
                 </div>
               </TiltCard>
             </motion.div>
