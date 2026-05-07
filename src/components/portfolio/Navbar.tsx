@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "@/hooks/useTheme";
 
 const links = [
   { href: "#home", label: "Home" },
