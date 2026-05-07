@@ -1,5 +1,6 @@
-import { Gift, Palette, Film, ArrowUpRight, Sparkles } from "lucide-react";
+import { Gift, Palette, Film, Camera, ArrowUpRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { TiltCard } from "./TiltCard";
 
 const services = [
@@ -10,7 +11,7 @@ const services = [
     description:
       "A creative venture crafting customized gifts, sculpted statues, and one-of-a-kind artistic products — built on creativity, quality, and customer delight.",
     highlights: ["Custom Gifts", "Sculpted Statues", "Artistic Products", "Personalization"],
-    cta: { label: "Visit Store", href: "https://parvgift.lovable.app/" },
+    cta: { label: "Visit Store", href: "https://parvgift.lovable.app/", external: true },
     accent: "from-fuchsia-500/20 via-primary/10 to-transparent",
     iconRing: "from-fuchsia-500 to-primary",
   },
@@ -21,20 +22,31 @@ const services = [
     description:
       "Branding systems, social media creatives, posters, thumbnails, and polished UI visuals — designed with intent, balance, and modern aesthetic sensibility.",
     highlights: ["Branding", "Social Creatives", "Posters", "Thumbnails", "UI Visuals"],
-    cta: { label: "View Work", href: "#" },
+    cta: { label: "View Work", href: "/graphics", external: false },
     accent: "from-primary/20 via-accent/10 to-transparent",
     iconRing: "from-primary to-accent",
   },
   {
     icon: Film,
-    tag: "Visual Story",
-    title: "Photo & Video Editing",
+    tag: "Cinematic",
+    title: "Video Editing",
     description:
-      "Cinematic edits, reels, precise color grading, and visual storytelling that turns raw footage into a mood — produced with a director's eye.",
-    highlights: ["Cinematic Edits", "Reels", "Color Grading", "Premiere Pro", "After Effects", "Photoshop"],
-    cta: { label: "Watch Reel", href: "#" },
+      "Cinematic edits, reels, ads, transitions, and motion graphics — turning footage into a mood with a director's eye.",
+    highlights: ["Reels", "Ads", "Color Grading", "Motion Graphics", "Premiere Pro"],
+    cta: { label: "Watch Reel", href: "/video", external: false },
     accent: "from-accent/20 via-cyan-400/10 to-transparent",
     iconRing: "from-accent to-cyan-400",
+  },
+  {
+    icon: Camera,
+    tag: "Visual",
+    title: "Photo Editing",
+    description:
+      "Retouching, cinematic edits, color grading, AI enhancement, and background manipulation — pixel-perfect every time.",
+    highlights: ["Retouching", "Color Grading", "AI Enhancement", "Compositing", "Photoshop"],
+    cta: { label: "View Gallery", href: "/photo", external: false },
+    accent: "from-rose-400/20 via-amber-400/10 to-transparent",
+    iconRing: "from-rose-400 to-amber-400",
   },
 ];
 
@@ -102,16 +114,27 @@ export function Services() {
                 </div>
 
                 <div className="mt-auto pt-6 relative">
-                  <a
-                    href={s.cta.href}
-                    data-cursor
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
-                  >
-                    {s.cta.label}
-                    <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </a>
+                  {s.cta.external ? (
+                    <a
+                      href={s.cta.href}
+                      data-cursor
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
+                    >
+                      {s.cta.label}
+                      <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={s.cta.href}
+                      data-cursor
+                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
+                    >
+                      {s.cta.label}
+                      <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </Link>
+                  )}
                 </div>
               </TiltCard>
             </motion.div>
