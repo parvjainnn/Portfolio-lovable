@@ -2,33 +2,42 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
 import { About } from "@/components/portfolio/About";
+import { Developer } from "@/components/portfolio/Developer";
 import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
 import { Services } from "@/components/portfolio/Services";
 import { Socials } from "@/components/portfolio/Socials";
 import { CursorGlow } from "@/components/portfolio/CursorGlow";
+import { CommandMenu } from "@/components/portfolio/CommandMenu";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Parv Jain — Developer & Creative Technologist" },
-      { name: "description", content: "Portfolio of Parv Jain — engineering student, developer, and creative technologist crafting thoughtful, futuristic digital experiences." },
+      { title: "Parv Jain — Developer, Designer & Creative Technologist" },
+      { name: "description", content: "Premium portfolio of Parv Jain — engineer, graphic designer, and photo/video editor crafting cinematic, performant digital experiences." },
+      { property: "og:title", content: "Parv Jain — Developer, Designer & Creative Technologist" },
+      { property: "og:description", content: "Engineer-meets-creative. Java, DSA, data & AI projects alongside cinematic graphics, photo and video work." },
     ],
   }),
 });
 
 function Index() {
   return (
-    <main className="relative min-h-screen text-foreground" style={{ background: "var(--gradient-hero)" }}>
+    <main className="relative min-h-screen text-foreground overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+      <div aria-hidden className="pointer-events-none fixed inset-0 z-0 noise-overlay" />
       <CursorGlow />
+      <CommandMenu />
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Services />
-      <Socials />
+      <div className="relative z-10">
+        <Hero />
+        <About />
+        <Developer />
+        <Skills />
+        <Projects />
+        <Services />
+        <Socials />
+      </div>
     </main>
   );
 }
