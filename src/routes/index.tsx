@@ -6,6 +6,8 @@ import { Developer } from "@/components/portfolio/Developer";
 import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
 import { Services } from "@/components/portfolio/Services";
+import { CodingProfiles } from "@/components/portfolio/CodingProfiles";
+import { SocialMedia } from "@/components/portfolio/SocialMedia";
 import { Socials } from "@/components/portfolio/Socials";
 import { CursorGlow } from "@/components/portfolio/CursorGlow";
 import { CommandMenu } from "@/components/portfolio/CommandMenu";
