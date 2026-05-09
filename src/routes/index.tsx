@@ -38,6 +38,8 @@ function Index() {
         <Skills />
         <Projects />
         <Services />
+        <CodingProfiles />
+        <SocialMedia />
         <Socials />
       </div>
     </main>
