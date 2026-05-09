@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Command } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { href: "/#home", label: "Home" },
   { href: "/#about", label: "About" },
-  { href: "/#skills", label: "Skills" },
+  { href: "/#developer", label: "Developer" },
   { href: "/#projects", label: "Projects" },
   { href: "/#services", label: "Services" },
   { href: "/#contact", label: "Contact" },
 ];
+
+const openCmd = () => window.dispatchEvent(new Event("open-command-menu"));
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
