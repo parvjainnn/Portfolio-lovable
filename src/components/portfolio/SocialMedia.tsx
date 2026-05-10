@@ -41,13 +41,13 @@ export function SocialMedia() {
           className="text-center mb-14"
         >
           <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-            <Heart size={12} /> 05 — Social
+            <Heart size={12} /> 05 --- Social
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
             Follow my <span className="text-gradient">journey</span>.
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            The personal side of things — frames, thoughts, and everyday creative chaos.
+            The personal side of things --- frames, thoughts, and everyday creative chaos.
           </p>
         </motion.div>
 
@@ -60,7 +60,7 @@ export function SocialMedia() {
                 href={s.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label={`${s.name} — ${s.handle}`}
+                aria-label={`${s.name} --- ${s.handle}`}
                 data-cursor
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}

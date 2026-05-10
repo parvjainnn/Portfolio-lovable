@@ -44,7 +44,7 @@ export function Hero() {
 
           <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
             Engineering student, developer, and creative technologist crafting clean, performant,
-            and human digital experiences — where logic meets design.
+            and human digital experiences --- where logic meets design.
           </p>
 
           <p className="mt-4 text-base text-foreground/80 font-medium">

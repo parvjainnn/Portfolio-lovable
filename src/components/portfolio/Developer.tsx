@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Github, Code2, ExternalLink, Terminal } from "lucide-react";
 
 const lines = [
-  { p: "$", c: "whoami", out: "parv-jain — engineer · creative · builder" },
+  { p: "$", c: "whoami", out: "parv-jain --- engineer · creative · builder" },
   { p: "$", c: "cat stack.json", out: '{ "lang": ["Java","Python","C++"], "web": ["React","TS"], "focus": "DSA · Analytics · AI" }' },
   { p: "$", c: "ls ./now", out: "leetcode-grind/  airbnb-analysis/  plant-disease/  healthtwin-ai/" },
   { p: "$", c: "echo $MISSION", out: "Ship clean, fast, human software." },
@@ -12,7 +12,7 @@ const stats = [
   { k: "300+", v: "DSA problems solved" },
   { k: "Java", v: "Primary language" },
   { k: "10+", v: "Repositories shipped" },
-  { k: "∞", v: "Curiosity index" },
+  { k: "-��", v: "Curiosity index" },
 ];
 
 export function Developer() {
@@ -29,7 +29,7 @@ export function Developer() {
             className="max-w-2xl"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Terminal size={12} /> 03 — Developer
+              <Terminal size={12} /> 03 --- Developer
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Engineer mode: <span className="text-gradient">always on</span>.
@@ -53,7 +53,7 @@ export function Developer() {
               <span className="h-3 w-3 rounded-full bg-rose-400/80" />
               <span className="h-3 w-3 rounded-full bg-amber-300/80" />
               <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
-              <span className="ml-3 text-[11px] font-mono text-muted-foreground">parv@portfolio — zsh</span>
+              <span className="ml-3 text-[11px] font-mono text-muted-foreground">parv@portfolio --- zsh</span>
             </div>
             <div className="p-5 sm:p-6 font-mono text-[13px] leading-relaxed">
               {lines.map((l, i) => (

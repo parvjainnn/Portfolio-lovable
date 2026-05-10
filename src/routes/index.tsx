@@ -16,9 +16,9 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Parv Jain — Developer, Designer & Creative Technologist" },
-      { name: "description", content: "Premium portfolio of Parv Jain — engineer, graphic designer, and photo/video editor crafting cinematic, performant digital experiences." },
-      { property: "og:title", content: "Parv Jain — Developer, Designer & Creative Technologist" },
+      { title: "Parv Jain --- Developer, Designer & Creative Technologist" },
+      { name: "description", content: "Premium portfolio of Parv Jain --- engineer, graphic designer, and photo/video editor crafting cinematic, performant digital experiences." },
+      { property: "og:title", content: "Parv Jain --- Developer, Designer & Creative Technologist" },
       { property: "og:description", content: "Engineer-meets-creative. Java, DSA, data & AI projects alongside cinematic graphics, photo and video work." },
     ],
   }),

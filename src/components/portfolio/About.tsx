@@ -13,17 +13,17 @@ export function About() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <motion.div {...fadeUp} className="md:col-span-4">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 — About</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 --- About</p>
             <h2 className="text-4xl sm:text-5xl font-bold">Engineer. Designer. Storyteller.</h2>
           </motion.div>
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} className="md:col-span-8 space-y-5 text-lg text-muted-foreground leading-relaxed">
             <p>
-              I'm a versatile creator and engineering student — comfortable shipping clean
+              I'm a versatile creator and engineering student --- comfortable shipping clean
               software, designing brand systems, and editing photos and videos with a cinematic eye.
               A fast learner who thrives on going from blank canvas to finished craft.
             </p>
             <p>
-              By day I write Java, grind DSA, and explore data and AI. By night I'm in the studio —
+              By day I write Java, grind DSA, and explore data and AI. By night I'm in the studio ---
               colour-grading reels, sketching posters, and chasing the next idea worth building.
               I treat every project as a chance to make something feel effortless.
             </p>
@@ -38,7 +38,7 @@ export function About() {
               {[
                 { k: "10+", v: "Projects" },
                 { k: "3", v: "Years coding" },
-                { k: "∞", v: "Curiosity" },
+                { k: "-��", v: "Curiosity" },
               ].map((s) => (
                 <div key={s.v} className="glass rounded-2xl p-4 text-center shadow-card">
                   <div className="text-2xl sm:text-3xl font-display font-bold text-gradient">{s.k}</div>
