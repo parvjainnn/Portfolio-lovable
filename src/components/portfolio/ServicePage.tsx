@@ -124,12 +124,12 @@ export function ServicePage(p: ServicePageProps) {
           <div className="group relative w-full sm:w-auto">
             <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-focus-within:opacity-40 blur-md transition-opacity duration-500 pointer-events-none" />
             <div className="relative flex items-center glass rounded-full pl-4 pr-2 py-1.5 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary/50 focus-within:shadow-glow">
-              <Search size={15} className="text-muted-foreground group-focus-within:text-primary transition-colors" />
+              <SearchIcon size={16} strokeWidth={1.75} className="text-muted-foreground/80 group-focus-within:text-primary transition-colors" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search projects--"
-                className="bg-transparent outline-none text-sm placeholder:text-muted-foreground/70 px-3 py-1 w-full sm:w-56 focus:sm:w-72 transition-[width] duration-300 font-mono"
+                placeholder="Search projects..."
+                className="bg-transparent outline-none text-sm placeholder:text-muted-foreground/60 px-3 py-1 w-full sm:w-56 focus:sm:w-72 transition-[width] duration-300 font-mono tracking-tight"
               />
               {query && (
                 <button onClick={() => setQuery("")} aria-label="Clear" className="h-7 w-7 rounded-full hover:bg-foreground/10 flex items-center justify-center transition">
