@@ -22,7 +22,7 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mb-14"
         >
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">02 — Skills</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">02 --- Skills</p>
           <h2 className="text-4xl sm:text-5xl font-bold">A toolbox built for momentum.</h2>
         </motion.div>
 

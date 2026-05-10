@@ -14,13 +14,13 @@ export function Socials() {
           className="text-center"
         >
           <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-            <Sparkles size={12} /> 07 — Contact
+            <Sparkles size={12} /> 07 --- Contact
           </p>
           <h2 className="text-4xl sm:text-6xl font-bold tracking-tight">
             Let's build something <span className="text-gradient">memorable</span>.
           </h2>
           <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
-            Open to internships, freelance briefs, and collaborations. Reach out — I usually reply fast.
+            Open to internships, freelance briefs, and collaborations. Reach out --- I usually reply fast.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
