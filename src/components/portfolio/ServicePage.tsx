@@ -121,14 +121,22 @@ export function ServicePage(p: ServicePageProps) {
               </button>
             ))}
           </div>
-          <div className="relative">
-            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search projects..."
-              className="glass rounded-full pl-9 pr-4 py-2 text-sm bg-transparent outline-none w-56 focus:w-72 transition-all"
-            />
+          <div className="group relative w-full sm:w-auto">
+            <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-focus-within:opacity-40 blur-md transition-opacity duration-500 pointer-events-none" />
+            <div className="relative flex items-center glass rounded-full pl-4 pr-2 py-1.5 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary/50 focus-within:shadow-glow">
+              <Search size={15} className="text-muted-foreground group-focus-within:text-primary transition-colors" />
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search projects…"
+                className="bg-transparent outline-none text-sm placeholder:text-muted-foreground/70 px-3 py-1 w-full sm:w-56 focus:sm:w-72 transition-[width] duration-300 font-mono"
+              />
+              {query && (
+                <button onClick={() => setQuery("")} aria-label="Clear" className="h-7 w-7 rounded-full hover:bg-foreground/10 flex items-center justify-center transition">
+                  <X size={13} />
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </section>

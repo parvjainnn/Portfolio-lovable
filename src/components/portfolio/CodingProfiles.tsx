@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Code2, Trophy, ArrowUpRight, Terminal, GitCommitHorizontal } from "lucide-react";
+import { Github, Code2, ArrowUpRight, Terminal, GitCommitHorizontal } from "lucide-react";
 
 const profiles = [
   {
@@ -29,20 +29,6 @@ const profiles = [
     ],
     tag: "dsa.runner",
     command: "leetcode submit --lang java",
-  },
-  {
-    name: "HackerRank",
-    handle: "@parvjainnn",
-    href: "https://www.hackerrank.com/parvjainnn",
-    icon: Trophy,
-    accent: "#1BA94C",
-    stats: [
-      { label: "Badges", value: "Gold" },
-      { label: "Domains", value: "Java · DSA" },
-      { label: "Certs", value: "Verified" },
-    ],
-    tag: "compete",
-    command: "hackerrank run --mode practice",
   },
 ];
 
@@ -83,7 +69,7 @@ export function CodingProfiles() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {profiles.map((p, i) => {
             const Icon = p.icon;
             return (
