@@ -128,7 +128,7 @@ export function ServicePage(p: ServicePageProps) {
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search projects--¦"
+                placeholder="Search projects--"
                 className="bg-transparent outline-none text-sm placeholder:text-muted-foreground/70 px-3 py-1 w-full sm:w-56 focus:sm:w-72 transition-[width] duration-300 font-mono"
               />
               {query && (
@@ -347,7 +347,7 @@ export function ServicePage(p: ServicePageProps) {
                     <h4 className="font-display font-semibold mb-3">Process</h4>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       {active.details.process.map((p) => (
-                        <li key={p} className="flex gap-2"><span className="text-primary">-†’</span>{p}</li>
+                        <li key={p} className="flex gap-2"><span className="text-primary">-</span>{p}</li>
                       ))}
                     </ul>
                   </div>
