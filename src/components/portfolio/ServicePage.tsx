@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Search, X, Sparkles, Instagram, Twitter, Mail } from "lucide-react";
+import { ArrowUpRight, SearchIcon, X, Sparkles, Instagram, Twitter, Mail } from "lucide-react";
 
 export type ServiceProject = {
   id: string;

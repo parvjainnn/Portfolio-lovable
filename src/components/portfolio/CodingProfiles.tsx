@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Code2, ArrowUpRight, Terminal, GitCommitHorizontal } from "lucide-react";
+import { Github, Code2, ArrowUpRight, Terminal, GitCommitHorizontal, ExternalLink } from "lucide-react";
 
 const profiles = [
   {
@@ -151,15 +151,15 @@ export function CodingProfiles() {
 
                   <div className="flex items-center justify-between">
                     <span
-                      className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full font-medium transition-all"
+                      className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full font-medium transition-all duration-300 group-hover:gap-3 group-hover:shadow-lg"
                       style={{
                         background: `linear-gradient(135deg, ${p.accent}, ${p.accent}cc)`,
                         color: "#0a0a0a",
                         boxShadow: `0 8px 24px -10px ${p.accent}cc`,
                       }}
                     >
-                      View Profile
-                      <ArrowUpRight size={12} />
+                      Visit
+                      <ExternalLink size={12} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
                     <GitCommitHorizontal
                       size={16}
