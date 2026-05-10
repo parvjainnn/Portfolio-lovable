@@ -69,7 +69,7 @@ export function CodingProfiles() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {profiles.map((p, i) => {
             const Icon = p.icon;
             return (
