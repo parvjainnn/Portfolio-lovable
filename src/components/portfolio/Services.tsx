@@ -75,7 +75,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {services.map(({ icon: Icon, ...s }, i) => (
             <motion.div
               key={s.title}
