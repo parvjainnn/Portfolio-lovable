@@ -9,7 +9,7 @@ const services = [
     tag: "Business",
     title: "Parv Gift",
     description:
-      "A creative venture crafting customized gifts, sculpted statues, and one-of-a-kind artistic products --- built on creativity, quality, and customer delight.",
+      "A creative venture crafting customized gifts, sculpted statues, and one-of-a-kind artistic products - built on creativity, quality, and customer delight.",
     highlights: ["Custom Gifts", "Sculpted Statues", "Artistic Products", "Personalization"],
     cta: { label: "Visit Store", href: "https://parvgift.lovable.app/", external: true },
     accent: "from-fuchsia-500/20 via-primary/10 to-transparent",
@@ -20,7 +20,7 @@ const services = [
     tag: "Creative",
     title: "Graphics Designing",
     description:
-      "Branding systems, social media creatives, posters, thumbnails, and polished UI visuals --- designed with intent, balance, and modern aesthetic sensibility.",
+      "Branding systems, social media creatives, posters, thumbnails, and polished UI visuals - designed with intent, balance, and modern aesthetic sensibility.",
     highlights: ["Branding", "Social Creatives", "Posters", "Thumbnails", "UI Visuals"],
     cta: { label: "View Work", href: "/graphics", external: false },
     accent: "from-primary/20 via-accent/10 to-transparent",
@@ -31,7 +31,7 @@ const services = [
     tag: "Cinematic",
     title: "Video Editing",
     description:
-      "Cinematic edits, reels, ads, transitions, and motion graphics --- turning footage into a mood with a director's eye.",
+      "Cinematic edits, reels, ads, transitions, and motion graphics - turning footage into a mood with a director's eye.",
     highlights: ["Reels", "Ads", "Color Grading", "Motion Graphics", "Premiere Pro"],
     cta: { label: "Watch Reel", href: "/video", external: false },
     accent: "from-accent/20 via-cyan-400/10 to-transparent",
@@ -42,7 +42,7 @@ const services = [
     tag: "Visual",
     title: "Photo Editing",
     description:
-      "Retouching, cinematic edits, color grading, AI enhancement, and background manipulation --- pixel-perfect every time.",
+      "Retouching, cinematic edits, color grading, AI enhancement, and background manipulation - pixel-perfect every time.",
     highlights: ["Retouching", "Color Grading", "AI Enhancement", "Compositing", "Photoshop"],
     cta: { label: "View Gallery", href: "/photo", external: false },
     accent: "from-rose-400/20 via-amber-400/10 to-transparent",
@@ -64,14 +64,14 @@ export function Services() {
             className="max-w-2xl"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Sparkles size={12} /> 04 --- Professional Services
+              <Sparkles size={12} /> 04 - Professional Services
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
-              Beyond code --- a creative practice.
+              Beyond code - a creative practice.
             </h2>
           </motion.div>
           <p className="text-muted-foreground max-w-md">
-            Distinct from engineering work, these are the crafts I run as a creative --- built around storytelling, taste, and detail.
+            Distinct from engineering work, these are the crafts I run as a creative - built around storytelling, taste, and detail.
           </p>
         </div>
 

@@ -28,7 +28,7 @@ const projects: Project[] = [
   {
     title: "Airbnb Data Analysis",
     description:
-      "Exploratory data analysis of Airbnb listings --- uncovering pricing trends, location insights, and host patterns through clean visualizations.",
+      "Exploratory data analysis of Airbnb listings - uncovering pricing trends, location insights, and host patterns through clean visualizations.",
     overview:
       "An end-to-end EDA project on the Airbnb NYC dataset focused on translating raw listing data into actionable insights for hosts and travelers.",
     problem:
@@ -53,8 +53,8 @@ const projects: Project[] = [
     challenges:
       "Skewed price distributions and inconsistent location data required custom cleaning and log-transformations to make trends interpretable.",
     learnings:
-      "Sharpened storytelling through data --- learned that the best EDA isn't about more charts, it's about the right ones.",
-    role: "Solo project --- owned data cleaning, analysis, visualization, and write-up.",
+      "Sharpened storytelling through data - learned that the best EDA isn't about more charts, it's about the right ones.",
+    role: "Solo project - owned data cleaning, analysis, visualization, and write-up.",
     future: ["Add interactive Plotly dashboards", "Model price prediction with regression", "Deploy as a Streamlit app"],
     href: "https://github.com/parvjainnn/Airbnb_DataAnalysis",
   },
@@ -84,8 +84,8 @@ const projects: Project[] = [
     challenges:
       "Class imbalance and visually similar disease patterns required careful augmentation and a deeper backbone to improve accuracy.",
     learnings:
-      "Practical exposure to the full ML lifecycle --- from dataset hygiene to deployment-ready models.",
-    role: "Solo project --- model architecture, training, and evaluation.",
+      "Practical exposure to the full ML lifecycle - from dataset hygiene to deployment-ready models.",
+    role: "Solo project - model architecture, training, and evaluation.",
     future: ["Mobile app integration", "Real-time camera inference", "Expand to more crops"],
     href: "https://github.com/parvjainnn/Plant_Disease_Detection",
   },
@@ -115,8 +115,8 @@ const projects: Project[] = [
     challenges:
       "Designing prompts that stay safe and grounded while still feeling personal required tight guardrails and structured outputs.",
     learnings:
-      "Bridging AI quality with UX --- even great models fail without trust, clarity, and tight feedback loops.",
-    role: "Full-stack --- backend, prompt engineering, and frontend integration.",
+      "Bridging AI quality with UX - even great models fail without trust, clarity, and tight feedback loops.",
+    role: "Full-stack - backend, prompt engineering, and frontend integration.",
     future: ["Wearable integrations", "Long-term memory & trends", "Clinician-mode dashboards"],
     href: "https://github.com/parvjainnn/HealthTwin_AI",
   },
@@ -177,11 +177,11 @@ export function Projects() {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">03 --- Projects</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">03 - Projects</p>
             <h2 className="text-4xl sm:text-5xl font-bold">Selected work.</h2>
           </motion.div>
           <p className="text-muted-foreground max-w-md">
-            A few things I've built recently --- click any card to dive into the case study.
+            A few things I've built recently - click any card to dive into the case study.
           </p>
         </div>
 

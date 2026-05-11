@@ -58,7 +58,7 @@ export function CodingProfiles() {
             className="max-w-2xl"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Terminal size={12} /> 06 --- Coding Profiles
+              <Terminal size={12} /> 06 - Coding Profiles
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Where the <span className="text-gradient">commits</span> live.

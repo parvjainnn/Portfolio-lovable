@@ -16,12 +16,12 @@ export function Contact() {
           <div className="absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-accent/40 blur-[100px]" />
 
           <div className="relative">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">04 --- Contact</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">04 - Contact</p>
             <h2 className="text-4xl sm:text-6xl font-bold leading-tight">
               Let's build <span className="text-gradient">something</span> together.
             </h2>
             <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-              Open to internships, collaborations, and good conversations. Drop a line --- I usually
+              Open to internships, collaborations, and good conversations. Drop a line - I usually
               reply within a day.
             </p>
 

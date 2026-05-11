@@ -235,7 +235,7 @@ export function ServicePage(p: ServicePageProps) {
               >
                 <p className="text-sm leading-relaxed">"{t.quote}"</p>
                 <footer className="mt-4 text-xs font-mono text-muted-foreground">
-                  --- {t.author}, <span className="opacity-70">{t.role}</span>
+                  - {t.author}, <span className="opacity-70">{t.role}</span>
                 </footer>
               </motion.blockquote>
             ))}
