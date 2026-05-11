@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Command } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
@@ -11,7 +11,7 @@ const links = [
   { href: "/#contact", label: "Contact" },
 ];
 
-const openCmd = () => window.dispatchEvent(new Event("open-command-menu"));
+
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,15 +49,6 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={openCmd}
-              data-cursor
-              aria-label="Open command menu"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground hover:shadow-glow transition"
-            >
-              <Command size={12} />
-              <span className="font-mono">⌘K</span>
-            </button>
             <a href="#contact" data-cursor className="hidden sm:inline-flex items-center rounded-full bg-gradient-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition shadow-glow">
               Let's talk
             </a>
