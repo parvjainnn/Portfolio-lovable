@@ -158,7 +158,7 @@ export function CodingProfiles() {
                         boxShadow: `0 8px 24px -10px ${p.accent}cc`,
                       }}
                     >
-                      View Profile
+                      Visit
                       <ArrowUpRight size={12} />
                     </span>
                     <GitCommitHorizontal
