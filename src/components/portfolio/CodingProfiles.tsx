@@ -11,7 +11,7 @@ const profiles = [
     stats: [
       { label: "Repositories", value: "12+" },
       { label: "Contributions", value: "200+" },
-      { label: "Stars", value: "-˜…" },
+      { label: "Stars", value: "âˆž" },
     ],
     tag: "git remote",
     command: "git clone parv-jain.dev",
@@ -25,7 +25,7 @@ const profiles = [
     stats: [
       { label: "Problems", value: "300+" },
       { label: "Topics", value: "DSA" },
-      { label: "Streak", value: "ðŸ-¥" },
+      { label: "Streak", value: "âˆž" },
     ],
     tag: "dsa.runner",
     command: "leetcode submit --lang java",
