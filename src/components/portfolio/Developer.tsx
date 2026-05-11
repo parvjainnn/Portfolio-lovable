@@ -12,7 +12,7 @@ const stats = [
   { k: "300+", v: "DSA problems solved" },
   { k: "Java", v: "Primary language" },
   { k: "10+", v: "Repositories shipped" },
-  { k: "-ˆž", v: "Curiosity index" },
+  { k: "âˆž", v: "Curiosity index" },
 ];
 
 export function Developer() {

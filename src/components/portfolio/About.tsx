@@ -38,7 +38,7 @@ export function About() {
               {[
                 { k: "10+", v: "Projects" },
                 { k: "3", v: "Years coding" },
-                { k: "-ˆž", v: "Curiosity" },
+                { k: "âˆž", v: "Curiosity" },
               ].map((s) => (
                 <div key={s.v} className="glass rounded-2xl p-4 text-center shadow-card">
                   <div className="text-2xl sm:text-3xl font-display font-bold text-gradient">{s.k}</div>

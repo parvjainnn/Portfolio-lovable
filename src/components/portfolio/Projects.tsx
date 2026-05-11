@@ -212,7 +212,7 @@ export function Projects() {
                     ))}
                   </div>
                   <div className="mt-5 inline-flex items-center gap-2 text-xs font-mono text-primary">
-                    <Sparkles size={12} /> View case study -†’
+                    <Sparkles size={12} /> View case study â†’
                   </div>
                 </div>
               </TiltCard>
@@ -321,7 +321,7 @@ export function Projects() {
                       <ul className="grid sm:grid-cols-2 gap-2">
                         {active.features.map((f) => (
                           <li key={f} className="text-sm text-muted-foreground flex gap-2">
-                            <span className="text-primary mt-0.5">-†’</span>
+                            <span className="text-primary mt-0.5">â†’</span>
                             <span>{f}</span>
                           </li>
                         ))}
@@ -370,7 +370,7 @@ export function Projects() {
                       <ul className="grid sm:grid-cols-2 gap-2">
                         {active.future.map((f) => (
                           <li key={f} className="text-sm text-muted-foreground flex gap-2">
-                            <span className="text-accent mt-0.5">-œ¦</span>
+                            <span className="text-accent mt-0.5">âœ¦</span>
                             <span>{f}</span>
                           </li>
                         ))}
