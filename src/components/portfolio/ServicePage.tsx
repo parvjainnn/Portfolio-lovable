@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, SearchIcon, X, Sparkles, Instagram, Twitter, Mail } from "lucide-react";
+import { ArrowUpRight, Search, X, Sparkles, Instagram, Twitter, Mail } from "lucide-react";
 
 export type ServiceProject = {
   id: string;
@@ -124,12 +124,12 @@ export function ServicePage(p: ServicePageProps) {
           <div className="group relative w-full sm:w-auto">
             <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-focus-within:opacity-40 blur-md transition-opacity duration-500 pointer-events-none" />
             <div className="relative flex items-center glass rounded-full pl-4 pr-2 py-1.5 transition-all duration-300 focus-within:ring-2 focus-within:ring-primary/50 focus-within:shadow-glow">
-              <SearchIcon size={16} strokeWidth={1.75} className="text-muted-foreground/80 group-focus-within:text-primary transition-colors" />
+              <Search size={15} className="text-muted-foreground group-focus-within:text-primary transition-colors" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search projects..."
-                className="bg-transparent outline-none text-sm placeholder:text-muted-foreground/60 px-3 py-1 w-full sm:w-56 focus:sm:w-72 transition-[width] duration-300 font-mono tracking-tight"
+                placeholder="Search projects--¦"
+                className="bg-transparent outline-none text-sm placeholder:text-muted-foreground/70 px-3 py-1 w-full sm:w-56 focus:sm:w-72 transition-[width] duration-300 font-mono"
               />
               {query && (
                 <button onClick={() => setQuery("")} aria-label="Clear" className="h-7 w-7 rounded-full hover:bg-foreground/10 flex items-center justify-center transition">
@@ -347,7 +347,7 @@ export function ServicePage(p: ServicePageProps) {
                     <h4 className="font-display font-semibold mb-3">Process</h4>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       {active.details.process.map((p) => (
-                        <li key={p} className="flex gap-2"><span className="text-primary">-</span>{p}</li>
+                        <li key={p} className="flex gap-2"><span className="text-primary">-†’</span>{p}</li>
                       ))}
                     </ul>
                   </div>

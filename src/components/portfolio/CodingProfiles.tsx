@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Code2, ArrowUpRight, Terminal, GitCommitHorizontal, ExternalLink } from "lucide-react";
+import { Github, Code2, ArrowUpRight, Terminal, GitCommitHorizontal } from "lucide-react";
 
 const profiles = [
   {
@@ -11,7 +11,7 @@ const profiles = [
     stats: [
       { label: "Repositories", value: "12+" },
       { label: "Contributions", value: "200+" },
-      { label: "Stars", value: "-" },
+      { label: "Stars", value: "-˜…" },
     ],
     tag: "git remote",
     command: "git clone parv-jain.dev",
@@ -25,7 +25,7 @@ const profiles = [
     stats: [
       { label: "Problems", value: "300+" },
       { label: "Topics", value: "DSA" },
-      { label: "Streak", value: "-" },
+      { label: "Streak", value: "ðŸ-¥" },
     ],
     tag: "dsa.runner",
     command: "leetcode submit --lang java",
@@ -151,15 +151,15 @@ export function CodingProfiles() {
 
                   <div className="flex items-center justify-between">
                     <span
-                      className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full font-medium transition-all duration-300 group-hover:gap-3 group-hover:shadow-lg"
+                      className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full font-medium transition-all"
                       style={{
                         background: `linear-gradient(135deg, ${p.accent}, ${p.accent}cc)`,
                         color: "#0a0a0a",
                         boxShadow: `0 8px 24px -10px ${p.accent}cc`,
                       }}
                     >
-                      Visit
-                      <ExternalLink size={12} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      View Profile
+                      <ArrowUpRight size={12} />
                     </span>
                     <GitCommitHorizontal
                       size={16}
