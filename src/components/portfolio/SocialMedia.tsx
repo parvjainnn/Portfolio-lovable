@@ -41,7 +41,7 @@ export function SocialMedia() {
           className="text-center mb-14"
         >
           <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-            <Heart size={12} /> 05 - Social
+            <Heart size={12} /> 08 - Social
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
             Follow my <span className="text-gradient">journey</span>.
