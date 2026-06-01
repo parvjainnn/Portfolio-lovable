@@ -28,7 +28,7 @@ const projects: Project[] = [
   {
     title: "Airbnb Data Analysis",
     description:
-      "Exploratory data analysis of Airbnb listings - uncovering pricing trends, location insights, and host patterns through clean visualizations.",
+      "Analyzed 48,000+ NYC Airbnb listings to surface pricing trends, location demand gaps, and host behavior patterns. Built 12 visualizations revealing a 34% price premium in verified listings. Delivered as a reproducible Jupyter notebook.",
     overview:
       "An end-to-end EDA project on the Airbnb NYC dataset focused on translating raw listing data into actionable insights for hosts and travelers.",
     problem:
@@ -60,7 +60,7 @@ const projects: Project[] = [
   },
   {
     title: "Plant Disease Detection",
-    description: "AI-based system that detects plant diseases from leaf images using deep learning and image processing.",
+    description: "Deep learning classifier that identifies 38 plant disease categories from leaf images with 93%+ test accuracy. Trained on the PlantVillage dataset using transfer learning with TensorFlow/Keras. Built for real-world agricultural use.",
     overview:
       "A computer vision pipeline that classifies leaf images into healthy or diseased categories to help farmers act early.",
     problem:
@@ -91,7 +91,7 @@ const projects: Project[] = [
   },
   {
     title: "HealthTwin AI",
-    description: "AI-powered health assistant providing personalized insights, predictions, and a digital twin of your wellbeing.",
+    description: "LLM-powered personal health assistant that builds a digital model of the user's wellbeing and delivers personalized insights. React frontend with FastAPI backend. Designed for people who want proactive, not reactive, health awareness.",
     overview:
       "A digital health twin that synthesizes user data into personalized insights using LLMs and predictive modeling.",
     problem:
