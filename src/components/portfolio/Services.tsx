@@ -64,7 +64,7 @@ export function Services() {
             className="max-w-2xl"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Sparkles size={12} /> 04 - Professional Services
+              <Sparkles size={12} /> 06 - Professional Services
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Beyond code - a creative practice.
