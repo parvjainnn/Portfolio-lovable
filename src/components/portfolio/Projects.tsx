@@ -177,7 +177,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">03 - Projects</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">05 - Projects</p>
             <h2 className="text-4xl sm:text-5xl font-bold">Selected work.</h2>
           </motion.div>
           <p className="text-muted-foreground max-w-md">
@@ -187,18 +187,44 @@ export function Projects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p, i) => (
-            <motion.button
+            <motion.div
               key={p.title}
-              type="button"
+              role="button"
+              tabIndex={0}
               onClick={() => open(i)}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); } }}
               data-cursor
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="text-left"
+              className="text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-3xl"
             >
-              <TiltCard className="glass rounded-3xl overflow-hidden shadow-card h-full flex flex-col group">
+              <TiltCard className="glass rounded-3xl overflow-hidden shadow-card h-full flex flex-col group relative">
+                {/* Quick links */}
+                <div className="absolute top-3 right-3 z-10 flex items-center gap-2">
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label={`${p.title} on GitHub`}
+                    className="h-9 w-9 rounded-full glass flex items-center justify-center text-foreground/80 hover:text-foreground hover:shadow-glow transition"
+                  >
+                    <Github size={15} />
+                  </a>
+                  <a
+                    href={p.demo || "#"}
+                    target={p.demo ? "_blank" : undefined}
+                    rel="noreferrer noopener"
+                    onClick={(e) => { if (!p.demo) e.preventDefault(); e.stopPropagation(); }}
+                    aria-label={p.demo ? `${p.title} live demo` : "No live demo yet"}
+                    title={p.demo ? "Live demo" : "No live demo yet"}
+                    className={`h-9 w-9 rounded-full glass flex items-center justify-center text-foreground/80 hover:text-foreground hover:shadow-glow transition ${!p.demo ? "opacity-60" : ""}`}
+                  >
+                    <ExternalLink size={15} />
+                  </a>
+                </div>
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img src={p.image} alt={p.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
@@ -216,8 +242,21 @@ export function Projects() {
                   </div>
                 </div>
               </TiltCard>
-            </motion.button>
+            </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <a
+            href="https://github.com/parvjainnn"
+            target="_blank"
+            rel="noreferrer noopener"
+            data-cursor
+            className="group inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition"
+          >
+            More projects on GitHub
+            <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </div>
       </div>
 
