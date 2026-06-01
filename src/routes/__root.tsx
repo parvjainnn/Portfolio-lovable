@@ -35,8 +35,9 @@ export const Route = createRootRoute({
       { property: "og:title", content: "Parv Jain - Developer & Creative Technologist" },
       { property: "og:description", content: "Portfolio of Parv Jain - engineering student, developer, and creative technologist building thoughtful digital experiences." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Parv Jain" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@parvjainnn" },
       { name: "twitter:title", content: "Parv Jain - Developer & Creative Technologist" },
       { name: "twitter:description", content: "Portfolio of Parv Jain - engineering student, developer, and creative technologist building thoughtful digital experiences." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/96a8b2de-1658-49fc-941d-2cacbd48e721" },
@@ -49,6 +50,24 @@ export const Route = createRootRoute({
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Parv Jain",
+          url: "https://parvjainnn.lovable.app",
+          sameAs: [
+            "https://github.com/parvjainnn",
+            "https://linkedin.com/in/parvjainnn",
+            "https://x.com/parvjainnn",
+          ],
+          jobTitle: "Developer & Creative Technologist",
+          email: "hello@parvjain.dev",
+        }),
       },
     ],
   }),

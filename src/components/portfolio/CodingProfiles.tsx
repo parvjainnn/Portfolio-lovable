@@ -11,7 +11,7 @@ const profiles = [
     stats: [
       { label: "Repositories", value: "12+" },
       { label: "Contributions", value: "200+" },
-      { label: "Stars", value: "∞" },
+      { label: "Open Source", value: "12+ repos" },
     ],
     tag: "git remote",
     command: "git clone parv-jain.dev",
@@ -25,7 +25,7 @@ const profiles = [
     stats: [
       { label: "Problems", value: "300+" },
       { label: "Topics", value: "DSA" },
-      { label: "Streak", value: "∞" },
+      { label: "Streak", value: "Active" },
     ],
     tag: "dsa.runner",
     command: "leetcode submit --lang java",
@@ -58,7 +58,7 @@ export function CodingProfiles() {
             className="max-w-2xl"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Terminal size={12} /> 06 - Coding Profiles
+              <Terminal size={12} /> 07 - Coding Profiles
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Where the <span className="text-gradient">commits</span> live.

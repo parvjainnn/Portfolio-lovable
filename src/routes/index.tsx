@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
 import { About } from "@/components/portfolio/About";
-import { Developer } from "@/components/portfolio/Developer";
 import { Skills } from "@/components/portfolio/Skills";
+import { Developer } from "@/components/portfolio/Developer";
 import { Projects } from "@/components/portfolio/Projects";
 import { Services } from "@/components/portfolio/Services";
 import { CodingProfiles } from "@/components/portfolio/CodingProfiles";
@@ -34,8 +34,8 @@ function Index() {
       <div className="relative z-10">
         <Hero />
         <About />
-        <Developer />
         <Skills />
+        <Developer />
         <Projects />
         <Services />
         <CodingProfiles />

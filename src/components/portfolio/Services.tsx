@@ -64,7 +64,7 @@ export function Services() {
             className="max-w-2xl"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Sparkles size={12} /> 04 - Professional Services
+              <Sparkles size={12} /> 06 - Professional Services
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Beyond code - a creative practice.
@@ -101,6 +101,19 @@ export function Services() {
 
                 <h3 className="text-2xl font-semibold mb-2 relative">{s.title}</h3>
                 <p className="text-sm text-muted-foreground relative">{s.description}</p>
+
+                {s.title === "Video Editing" && (
+                  <div className="mt-5 relative aspect-video rounded-2xl overflow-hidden border border-border bg-black shadow-elegant">
+                    <iframe
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
+                      title="Parv Jain - Video Editing reel"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 h-full w-full"
+                    />
+                  </div>
+                )}
 
                 <div className="flex flex-wrap gap-2 mt-5 relative">
                   {s.highlights.map((h) => (
