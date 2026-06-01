@@ -12,7 +12,6 @@ const stats = [
   { k: "300+", v: "DSA problems solved" },
   { k: "Java", v: "Primary language" },
   { k: "10+", v: "Repositories shipped" },
-  { k: "∞", v: "Curiosity index" },
 ];
 
 export function Developer() {
@@ -29,7 +28,7 @@ export function Developer() {
             className="max-w-2xl"
           >
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Terminal size={12} /> 03 - Developer
+              <Terminal size={12} /> 04 - Developer
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Engineer mode: <span className="text-gradient">always on</span>.
