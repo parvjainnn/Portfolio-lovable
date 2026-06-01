@@ -13,7 +13,7 @@ export function About() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <motion.div {...fadeUp} className="md:col-span-4">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 - About</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">02 - About</p>
             <h2 className="text-4xl sm:text-5xl font-bold">Engineer. Designer. Storyteller.</h2>
           </motion.div>
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} className="md:col-span-8 space-y-5 text-lg text-muted-foreground leading-relaxed">
@@ -25,10 +25,9 @@ export function About() {
             <p>
               By day I write Java, grind DSA, and explore data and AI. By night I'm in the studio -
               colour-grading reels, sketching posters, and chasing the next idea worth building.
-              I treat every project as a chance to make something feel effortless.
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
-              {["Software Developer", "Graphic Designer", "Photo & Video Editor", "Fast Learner", "Creative Problem Solver"].map((t) => (
+              {["Software Developer", "Graphic Designer", "Photo & Video Editor", "Creative Problem Solver"].map((t) => (
                 <span key={t} className="text-xs font-mono px-3 py-1 rounded-full glass text-foreground/80">
                   {t}
                 </span>
@@ -38,7 +37,7 @@ export function About() {
               {[
                 { k: "10+", v: "Projects" },
                 { k: "3", v: "Years coding" },
-                { k: "∞", v: "Curiosity" },
+                { k: "5+", v: "Clients served" },
               ].map((s) => (
                 <div key={s.v} className="glass rounded-2xl p-4 text-center shadow-card">
                   <div className="text-2xl sm:text-3xl font-display font-bold text-gradient">{s.k}</div>
