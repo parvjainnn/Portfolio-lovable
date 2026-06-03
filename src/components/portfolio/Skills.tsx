@@ -11,7 +11,7 @@ const groups = [
   {
     icon: Palette,
     title: "Creative Tools",
-    items: ["Premiere Pro", "Photoshop", "After Effects", "Figma", "Canva"],
+    items: ["Premiere Pro", "Photoshop", "After Effects", "Figma", "Canva", "Lightroom"],
   },
   {
     icon: Wrench,

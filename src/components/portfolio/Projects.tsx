@@ -214,7 +214,7 @@ export function Projects() {
                     <Github size={15} />
                   </a>
                   <a
-                    href={p.demo || "#"}
+                    href={p.demo || "javascript:void(0)"}
                     target={p.demo ? "_blank" : undefined}
                     rel="noreferrer noopener"
                     onClick={(e) => { if (!p.demo) e.preventDefault(); e.stopPropagation(); }}

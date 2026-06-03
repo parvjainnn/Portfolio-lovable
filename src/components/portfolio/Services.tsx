@@ -1,4 +1,4 @@
-import { Gift, Palette, Film, Camera, ArrowUpRight, Sparkles } from "lucide-react";
+import { Gift, Palette, Film, Camera, ArrowUpRight, Sparkles, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { TiltCard } from "./TiltCard";
@@ -9,9 +9,9 @@ const services = [
     tag: "Business",
     title: "Parv Gift",
     description:
-      "A creative venture crafting customized gifts, sculpted statues, and one-of-a-kind artistic products - built on creativity, quality, and customer delight.",
+      "A creative venture crafting customized gifts, sculpted statues, and one-of-a-kind artistic products - handcrafted with care for what makes a gift actually memorable.",
     highlights: ["Custom Gifts", "Sculpted Statues", "Artistic Products", "Personalization"],
-    cta: { label: "Visit Store", href: "https://parvgift.lovable.app/", external: true },
+    cta: { label: "Browse Parv Gift →", href: "https://parvgift.lovable.app/", external: true },
     accent: "from-fuchsia-500/20 via-primary/10 to-transparent",
     iconRing: "from-fuchsia-500 to-primary",
   },
@@ -22,7 +22,7 @@ const services = [
     description:
       "Branding systems, social media creatives, posters, thumbnails, and polished UI visuals - designed with intent, balance, and modern aesthetic sensibility.",
     highlights: ["Branding", "Social Creatives", "Posters", "Thumbnails", "UI Visuals"],
-    cta: { label: "View Work", href: "/graphics", external: false },
+    cta: { label: "See design work →", href: "/graphics", external: false },
     accent: "from-primary/20 via-accent/10 to-transparent",
     iconRing: "from-primary to-accent",
   },
@@ -33,7 +33,7 @@ const services = [
     description:
       "Cinematic edits, reels, ads, transitions, and motion graphics - turning footage into a mood with a director's eye.",
     highlights: ["Reels", "Ads", "Color Grading", "Motion Graphics", "Premiere Pro"],
-    cta: { label: "Watch Reel", href: "/video", external: false },
+    cta: { label: "Watch the reel →", href: "/video", external: false },
     accent: "from-accent/20 via-cyan-400/10 to-transparent",
     iconRing: "from-accent to-cyan-400",
   },
@@ -44,7 +44,7 @@ const services = [
     description:
       "Retouching, cinematic edits, color grading, AI enhancement, and background manipulation - pixel-perfect every time.",
     highlights: ["Retouching", "Color Grading", "AI Enhancement", "Compositing", "Photoshop"],
-    cta: { label: "View Gallery", href: "/photo", external: false },
+    cta: { label: "See photo edits →", href: "/photo", external: false },
     accent: "from-rose-400/20 via-amber-400/10 to-transparent",
     iconRing: "from-rose-400 to-amber-400",
   },
@@ -103,15 +103,9 @@ export function Services() {
                 <p className="text-sm text-muted-foreground relative">{s.description}</p>
 
                 {s.title === "Video Editing" && (
-                  <div className="mt-5 relative aspect-video rounded-2xl overflow-hidden border border-border bg-black shadow-elegant">
-                    <iframe
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
-                      title="Parv Jain - Video Editing reel"
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 h-full w-full"
-                    />
+                  <div className="mt-5 relative aspect-video rounded-2xl overflow-hidden border border-dashed border-border bg-background/60 flex flex-col items-center justify-center text-muted-foreground">
+                    <Play size={24} className="text-primary mb-2" />
+                    <p className="text-sm font-mono">Reel dropping soon</p>
                   </div>
                 )}
 
