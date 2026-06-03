@@ -1,137 +1,190 @@
 import { motion } from "framer-motion";
-import { Github, Code2, ExternalLink, Terminal } from "lucide-react";
 
 const lines = [
-  { p: "$", c: "whoami", out: "parv-jain - engineer · creative · builder" },
-  { p: "$", c: "cat stack.json", out: '{ "lang": ["Java","Python","C++"], "web": ["React","TS"], "focus": "DSA · Analytics · AI" }' },
-  { p: "$", c: "ls ./now", out: "leetcode-grind/  airbnb-analysis/  plant-disease/  healthtwin-ai/" },
-  { p: "$", c: "echo $MISSION", out: "Ship clean, fast, human software." },
+  { p: "$", c: "whoami", out: "parv-jain — engineer · creative · builder", kind: "text" as const },
+  { p: "$", c: "cat stack.json", out: '{ "lang": ["Java","Python","C++"], "web": ["React","TS"], "focus": "DSA · Analytics · AI" }', kind: "json" as const },
+  { p: "$", c: "ls ./now", out: "leetcode-grind/  airbnb-analysis/  plant-disease/  healthtwin-ai/", kind: "ls" as const },
+  { p: "$", c: "echo $MISSION", out: "Ship clean, fast, human software.", kind: "mission" as const },
 ];
 
 const stats = [
-  { k: "300+", v: "DSA problems solved" },
+  { k: "300+", v: "DSA solved" },
   { k: "Java", v: "Primary language" },
-  { k: "10+", v: "Repositories shipped" },
-  { k: "Top 20%", v: "LeetCode ranking" },
+  { k: "10+", v: "Repos shipped" },
+  { k: "Top 20%", v: "LeetCode" },
 ];
+
+function renderOut(kind: "text" | "json" | "ls" | "mission", out: string) {
+  if (kind === "mission") return <span style={{ color: "var(--green)" }}>{out}</span>;
+  if (kind === "ls") {
+    return (
+      <>
+        {out.split(/\s{2}/).map((part, i) => (
+          <span key={i}>
+            <span style={{ color: "var(--accent)" }}>{part}</span>
+            {i < out.split(/\s{2}/).length - 1 ? "  " : ""}
+          </span>
+        ))}
+      </>
+    );
+  }
+  if (kind === "json") {
+    // crude colorization for keys (red) and string values (light blue)
+    const parts = out.split(/("[^"]*")/g);
+    return (
+      <>
+        {parts.map((p, i) => {
+          if (!/^"[^"]*"$/.test(p)) return <span key={i}>{p}</span>;
+          const after = parts[i + 1] ?? "";
+          const isKey = after.trimStart().startsWith(":");
+          return (
+            <span key={i} style={{ color: isKey ? "var(--red)" : "#A5D6FF" }}>
+              {p}
+            </span>
+          );
+        })}
+      </>
+    );
+  }
+  return <span style={{ color: "var(--text-secondary)" }}>{out}</span>;
+}
 
 export function Developer() {
   return (
-    <section id="developer" className="relative py-24 sm:py-32">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl"
+    <section id="developer" style={{ padding: "var(--sp-20) 0" }}>
+      <div className="mx-auto" style={{ maxWidth: 1200, padding: "0 var(--sp-8)" }}>
+        <motion.p
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="section-label" style={{ marginBottom: "var(--sp-6)" }}
+        >
+          <span className="num">04</span> — Developer
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="display-heading" style={{ marginBottom: "var(--sp-12)" }}
+        >
+          Engineer mode: always on.
+        </motion.h2>
+
+        {/* Terminal */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            background: "#0D1117",
+            border: "1px solid var(--border-default)",
+            borderRadius: "var(--radius-lg)",
+            overflow: "hidden",
+            marginBottom: "var(--sp-8)",
+          }}
+        >
+          {/* Title bar */}
+          <div
+            className="relative flex items-center"
+            style={{
+              height: 40,
+              background: "var(--bg-elevated)",
+              borderBottom: "1px solid var(--border-subtle)",
+              padding: "0 var(--sp-4)",
+            }}
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Terminal size={12} /> 04 - Developer
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
-              Engineer mode: <span className="text-gradient">always on</span>.
-            </h2>
-          </motion.div>
-          <p className="text-muted-foreground max-w-md">
-            Java-first thinker. DSA grinder. Building data and AI projects with pragmatism over hype.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-5 gap-6">
-          {/* Terminal */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-3 glass rounded-3xl overflow-hidden shadow-elegant"
-          >
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-foreground/[0.03]">
-              <span className="h-3 w-3 rounded-full bg-rose-400/80" />
-              <span className="h-3 w-3 rounded-full bg-amber-300/80" />
-              <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
-              <span className="ml-3 text-[11px] font-mono text-muted-foreground">parv@portfolio - zsh</span>
+            <div className="flex items-center" style={{ gap: 8 }}>
+              <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FF5F57" }} />
+              <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FEBC2E" }} />
+              <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#28C840" }} />
             </div>
-            <div className="p-5 sm:p-6 font-mono text-[13px] leading-relaxed">
-              {lines.map((l, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -8 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, duration: 0.4 }}
-                  className="mb-3"
-                >
-                  <div>
-                    <span className="text-primary">{l.p}</span>{" "}
-                    <span className="text-foreground">{l.c}</span>
-                  </div>
-                  <div className="text-muted-foreground pl-4">{l.out}</div>
-                </motion.div>
-              ))}
-              <div className="flex items-center gap-2">
-                <span className="text-primary">$</span>
-                <span className="inline-block h-4 w-2 bg-foreground/80 animate-pulse" />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Stats + profiles */}
-          <div className="lg:col-span-2 grid gap-6">
-            <div className="grid grid-cols-2 gap-3">
-              {stats.map((s, i) => (
-                <motion.div
-                  key={s.v}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.5 }}
-                  className="glass rounded-2xl p-4 shadow-card"
-                >
-                  <div className="text-2xl sm:text-3xl font-display font-bold text-gradient">{s.k}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="grid gap-3">
-              <a
-                href="https://github.com/parvjainnn"
-                target="_blank"
-                rel="noreferrer noopener"
-                data-cursor
-                className="group glass rounded-2xl p-4 flex items-center gap-3 hover:shadow-glow transition"
-              >
-                <div className="h-10 w-10 rounded-xl bg-foreground/5 flex items-center justify-center">
-                  <Github size={18} />
-                </div>
-                <div className="flex-1">
-                  <div className="font-display font-semibold text-sm">GitHub</div>
-                  <div className="text-[11px] font-mono text-muted-foreground">@parvjainnn</div>
-                </div>
-                <ExternalLink size={14} className="text-muted-foreground group-hover:text-foreground transition" />
-              </a>
-              <a
-                href="https://leetcode.com/u/parvjainnn"
-                target="_blank"
-                rel="noreferrer noopener"
-                data-cursor
-                className="group glass rounded-2xl p-4 flex items-center gap-3 hover:shadow-glow transition"
-              >
-                <div className="h-10 w-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center">
-                  <Code2 size={18} />
-                </div>
-                <div className="flex-1">
-                  <div className="font-display font-semibold text-sm">LeetCode</div>
-                  <div className="text-[11px] font-mono text-muted-foreground">u/parvjainnn</div>
-                </div>
-                <ExternalLink size={14} className="text-muted-foreground group-hover:text-foreground transition" />
-              </a>
+            <div
+              className="absolute left-1/2 -translate-x-1/2"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 12,
+                color: "var(--text-muted)",
+              }}
+            >
+              parv@portfolio — zsh
             </div>
           </div>
+
+          {/* Body */}
+          <div
+            style={{
+              padding: "var(--sp-6) var(--sp-8)",
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 14,
+              color: "var(--text-secondary)",
+              lineHeight: 1.8,
+            }}
+          >
+            {lines.map((l, i) => (
+              <div key={i} style={{ marginBottom: "var(--sp-3)" }}>
+                <div>
+                  <span style={{ color: "var(--accent)" }}>{l.p}</span>{" "}
+                  <span style={{ color: "var(--text-primary)" }}>{l.c}</span>
+                </div>
+                <div style={{ paddingLeft: 16 }}>{renderOut(l.kind, l.out)}</div>
+              </div>
+            ))}
+            <div className="flex items-center" style={{ gap: 8 }}>
+              <span style={{ color: "var(--accent)" }}>$</span>
+              <span
+                style={{
+                  display: "inline-block",
+                  width: 8,
+                  height: 16,
+                  background: "var(--text-primary)",
+                  animation: "blink 1s steps(2) infinite",
+                }}
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "var(--sp-4)" }}>
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.v}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                background: "var(--bg-card)",
+                border: "1px solid var(--border-subtle)",
+                borderRadius: "var(--radius-lg)",
+                padding: "var(--sp-6) var(--sp-8)",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontWeight: 800,
+                  fontSize: 40,
+                  color: "var(--text-primary)",
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1,
+                  marginBottom: "var(--sp-1)",
+                }}
+              >
+                {s.k}
+              </div>
+              <div
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 12,
+                  color: "var(--text-muted)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                {s.v}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
