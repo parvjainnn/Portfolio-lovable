@@ -1,20 +1,16 @@
-import { Code2, Palette, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
-import { TiltCard } from "./TiltCard";
 
 const groups = [
   {
-    icon: Code2,
     title: "Engineering",
-    items: ["Java (Primary)", "Python", "C++", "DSA", "React", "TypeScript", "HTML/CSS"],
+    items: ["Java", "Python", "C++", "DSA", "React", "TypeScript", "HTML/CSS"],
+    primary: "Java",
   },
   {
-    icon: Palette,
     title: "Creative Tools",
     items: ["Premiere Pro", "Photoshop", "After Effects", "Figma", "Canva", "Lightroom"],
   },
   {
-    icon: Wrench,
     title: "Workflow",
     items: ["Git", "GitHub", "VS Code", "Jupyter"],
   },
@@ -22,43 +18,75 @@ const groups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-14"
+    <section id="skills" style={{ padding: "var(--sp-20) 0" }}>
+      <div className="mx-auto" style={{ maxWidth: 1200, padding: "0 var(--sp-8)" }}>
+        <motion.p
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="section-label" style={{ marginBottom: "var(--sp-6)" }}
         >
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">03 - Skills</p>
-          <h2 className="text-4xl sm:text-5xl font-bold">A toolbox built for momentum.</h2>
-        </motion.div>
+          <span className="num">03</span> — Skills
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="display-heading" style={{ marginBottom: "var(--sp-12)" }}
+        >
+          A toolbox built for momentum.
+        </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {groups.map(({ icon: Icon, title, items }, i) => (
+        <div className="grid md:grid-cols-3" style={{ gap: "var(--sp-6)" }}>
+          {groups.map((g, i) => (
             <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 30 }}
+              key={g.title}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                background: "var(--bg-card)",
+                border: "1px solid var(--border-subtle)",
+                borderRadius: "var(--radius-lg)",
+                padding: "var(--sp-8)",
+              }}
             >
-              <TiltCard className="glass rounded-2xl p-6 shadow-card h-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="h-10 w-10 rounded-xl bg-gradient-primary text-primary-foreground flex items-center justify-center shadow-glow">
-                    <Icon size={20} />
-                  </div>
-                  <h3 className="font-semibold">{title}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((it) => (
-                    <span key={it} className="text-xs font-mono px-3 py-1 rounded-full bg-foreground/5 border border-border text-muted-foreground">
+              <h3
+                style={{
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontWeight: 600,
+                  fontSize: 13,
+                  color: "var(--text-muted)",
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  marginBottom: "var(--sp-5)",
+                  paddingBottom: "var(--sp-4)",
+                  borderBottom: "1px solid var(--border-subtle)",
+                }}
+              >
+                {g.title}
+              </h3>
+              <div className="flex flex-wrap" style={{ gap: "var(--sp-2)" }}>
+                {g.items.map((it) => {
+                  const isPrimary = g.primary === it;
+                  return (
+                    <span
+                      key={it}
+                      className="skill-tag"
+                      style={
+                        isPrimary
+                          ? {
+                              borderColor: "rgba(88, 166, 255, 0.4)",
+                              color: "var(--accent-text)",
+                            }
+                          : undefined
+                      }
+                    >
                       {it}
+                      {isPrimary ? " (Primary)" : ""}
                     </span>
-                  ))}
-                </div>
-              </TiltCard>
+                  );
+                })}
+              </div>
             </motion.div>
           ))}
         </div>
