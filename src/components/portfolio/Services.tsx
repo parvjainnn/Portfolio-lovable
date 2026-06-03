@@ -1,149 +1,168 @@
-import { Gift, Palette, Film, Camera, ArrowUpRight, Sparkles, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import { TiltCard } from "./TiltCard";
 
 const services = [
   {
-    icon: Gift,
     tag: "Business",
     title: "Parv Gift",
     description:
-      "A creative venture crafting customized gifts, sculpted statues, and one-of-a-kind artistic products - handcrafted with care for what makes a gift actually memorable.",
+      "A creative venture crafting customized gifts, sculpted statues, and one-of-a-kind products — handcrafted for what makes a gift actually memorable.",
     highlights: ["Custom Gifts", "Sculpted Statues", "Artistic Products", "Personalization"],
     cta: { label: "Browse Parv Gift →", href: "https://parvgift.lovable.app/", external: true },
-    accent: "from-fuchsia-500/20 via-primary/10 to-transparent",
-    iconRing: "from-fuchsia-500 to-primary",
   },
   {
-    icon: Palette,
     tag: "Creative",
     title: "Graphics Designing",
     description:
-      "Branding systems, social media creatives, posters, thumbnails, and polished UI visuals - designed with intent, balance, and modern aesthetic sensibility.",
+      "Branding systems, social media creatives, posters, thumbnails, and polished UI visuals — designed with intent, balance, and modern aesthetic sensibility.",
     highlights: ["Branding", "Social Creatives", "Posters", "Thumbnails", "UI Visuals"],
     cta: { label: "See design work →", href: "/graphics", external: false },
-    accent: "from-primary/20 via-accent/10 to-transparent",
-    iconRing: "from-primary to-accent",
   },
   {
-    icon: Film,
     tag: "Cinematic",
     title: "Video Editing",
     description:
-      "Cinematic edits, reels, ads, transitions, and motion graphics - turning footage into a mood with a director's eye.",
+      "Cinematic edits, reels, ads, transitions, and motion graphics — turning footage into a mood with a director's eye.",
     highlights: ["Reels", "Ads", "Color Grading", "Motion Graphics", "Premiere Pro"],
     cta: { label: "Watch the reel →", href: "/video", external: false },
-    accent: "from-accent/20 via-cyan-400/10 to-transparent",
-    iconRing: "from-accent to-cyan-400",
+    isVideo: true,
   },
   {
-    icon: Camera,
     tag: "Visual",
     title: "Photo Editing",
     description:
-      "Retouching, cinematic edits, color grading, AI enhancement, and background manipulation - pixel-perfect every time.",
+      "Retouching, cinematic edits, color grading, AI enhancement, and background manipulation — pixel-perfect every time.",
     highlights: ["Retouching", "Color Grading", "AI Enhancement", "Compositing", "Photoshop"],
     cta: { label: "See photo edits →", href: "/photo", external: false },
-    accent: "from-rose-400/20 via-amber-400/10 to-transparent",
-    iconRing: "from-rose-400 to-amber-400",
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="relative py-24 sm:py-32">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl"
-          >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Sparkles size={12} /> 06 - Professional Services
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
-              Beyond code - a creative practice.
-            </h2>
-          </motion.div>
-          <p className="text-muted-foreground max-w-md">
-            Distinct from engineering work, these are the crafts I run as a creative - built around storytelling, taste, and detail.
-          </p>
-        </div>
+    <section id="services" style={{ padding: "var(--sp-20) 0" }}>
+      <div className="mx-auto" style={{ maxWidth: 1200, padding: "0 var(--sp-8)" }}>
+        <motion.p
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="section-label" style={{ marginBottom: "var(--sp-6)" }}
+        >
+          <span className="num">06</span> — Services
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="display-heading" style={{ marginBottom: "var(--sp-12)" }}
+        >
+          Beyond code — a creative practice.
+        </motion.h2>
 
-        <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {services.map(({ icon: Icon, ...s }, i) => (
+        <div className="grid sm:grid-cols-2" style={{ gap: "var(--sp-5)" }}>
+          {services.map((s, i) => (
             <motion.div
               key={s.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col"
+              style={{
+                background: "var(--bg-card)",
+                border: "1px solid var(--border-subtle)",
+                borderRadius: "var(--radius-xl)",
+                padding: "var(--sp-8)",
+                transition: "border-color 200ms ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--border-default)")}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border-subtle)")}
             >
-              <TiltCard className="glass rounded-3xl p-6 sm:p-7 shadow-card h-full flex flex-col overflow-hidden relative">
+              <p
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 11,
+                  color: "var(--text-muted)",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  marginBottom: "var(--sp-3)",
+                }}
+              >
+                {s.tag}
+              </p>
+              <h3
+                style={{
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 20,
+                  color: "var(--text-primary)",
+                  marginBottom: "var(--sp-4)",
+                }}
+              >
+                {s.title}
+              </h3>
+              <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "var(--sp-5)" }}>
+                {s.description}
+              </p>
+
+              {s.isVideo && (
                 <div
-                  aria-hidden
-                  className={`absolute -top-24 -right-24 h-56 w-56 rounded-full blur-3xl opacity-60 bg-gradient-to-br ${s.accent}`}
-                />
-
-                <div className="flex items-center justify-between mb-6 relative">
-                  <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${s.iconRing} text-primary-foreground flex items-center justify-center shadow-glow`}>
-                    <Icon size={22} />
-                  </div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground border border-border rounded-full px-3 py-1">
-                    {s.tag}
-                  </span>
+                  className="flex items-center justify-center"
+                  style={{
+                    background: "var(--bg-elevated)",
+                    border: "1px dashed var(--border-default)",
+                    borderRadius: "var(--radius-md)",
+                    height: 180,
+                    marginBottom: "var(--sp-5)",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 13,
+                    color: "var(--text-muted)",
+                  }}
+                >
+                  ▶  Reel dropping soon
                 </div>
+              )}
 
-                <h3 className="text-2xl font-semibold mb-2 relative">{s.title}</h3>
-                <p className="text-sm text-muted-foreground relative">{s.description}</p>
+              <div className="flex flex-wrap" style={{ gap: "var(--sp-2)", marginBottom: "var(--sp-6)" }}>
+                {s.highlights.map((h) => (
+                  <span key={h} className="skill-tag">{h}</span>
+                ))}
+              </div>
 
-                {s.title === "Video Editing" && (
-                  <div className="mt-5 relative aspect-video rounded-2xl overflow-hidden border border-dashed border-border bg-background/60 flex flex-col items-center justify-center text-muted-foreground">
-                    <Play size={24} className="text-primary mb-2" />
-                    <p className="text-sm font-mono">Reel dropping soon</p>
-                  </div>
+              <div className="mt-auto">
+                {s.cta.external ? (
+                  <a
+                    href={s.cta.href}
+                    data-cursor
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    style={{
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontWeight: 500,
+                      fontSize: 13,
+                      color: "var(--accent)",
+                      transition: "color 150ms ease",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent-text)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                  >
+                    {s.cta.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={s.cta.href}
+                    data-cursor
+                    style={{
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontWeight: 500,
+                      fontSize: 13,
+                      color: "var(--accent)",
+                      transition: "color 150ms ease",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent-text)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                  >
+                    {s.cta.label}
+                  </Link>
                 )}
-
-                <div className="flex flex-wrap gap-2 mt-5 relative">
-                  {s.highlights.map((h) => (
-                    <span
-                      key={h}
-                      className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-foreground/5 border border-border text-muted-foreground"
-                    >
-                      {h}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-auto pt-6 relative">
-                  {s.cta.external ? (
-                    <a
-                      href={s.cta.href}
-                      data-cursor
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
-                    >
-                      {s.cta.label}
-                      <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    </a>
-                  ) : (
-                    <Link
-                      to={s.cta.href}
-                      data-cursor
-                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
-                    >
-                      {s.cta.label}
-                      <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    </Link>
-                  )}
-                </div>
-              </TiltCard>
+              </div>
             </motion.div>
           ))}
         </div>
