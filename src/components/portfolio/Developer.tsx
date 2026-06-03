@@ -12,6 +12,7 @@ const stats = [
   { k: "300+", v: "DSA problems solved" },
   { k: "Java", v: "Primary language" },
   { k: "10+", v: "Repositories shipped" },
+  { k: "Top 20%", v: "LeetCode ranking" },
 ];
 
 export function Developer() {
@@ -80,7 +81,7 @@ export function Developer() {
 
           {/* Stats + profiles */}
           <div className="lg:col-span-2 grid gap-6">
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 gap-3">
               {stats.map((s, i) => (
                 <motion.div
                   key={s.v}

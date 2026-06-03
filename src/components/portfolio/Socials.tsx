@@ -21,13 +21,14 @@ export function Socials() {
     <section id="contact" className="relative py-24 sm:py-32">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        {/* Testimonials */}
+        {/* TESTIMONIALS - unhide when quotes are ready. Replace AB/CD initials and placeholder text first. */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="mb-20"
+          style={{ display: "none" }}
         >
           <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 text-center">What people say</p>
           <h3 className="text-2xl sm:text-3xl font-bold text-center mb-10">
@@ -58,6 +59,7 @@ export function Socials() {
             ))}
           </div>
         </motion.div>
+
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -100,9 +102,8 @@ export function Socials() {
           </div>
         </motion.div>
 
-        <footer className="mt-20 flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground border-t border-border pt-8">
-          <p>© {new Date().getFullYear()} Parv Jain. Designed & built by Parv Jain · 2026</p>
-          <p className="font-mono text-xs">parv.</p>
+        <footer className="mt-20 flex items-center justify-center text-sm text-muted-foreground border-t border-border pt-8">
+          <p>© 2026 Parv Jain · Designed & built by Parv.</p>
         </footer>
       </div>
     </section>

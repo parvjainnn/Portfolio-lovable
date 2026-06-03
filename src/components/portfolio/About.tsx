@@ -20,7 +20,6 @@ export function About() {
             <p>
               I'm a versatile creator and engineering student - comfortable shipping clean
               software, designing brand systems, and editing photos and videos with a cinematic eye.
-              A fast learner who thrives on going from blank canvas to finished craft.
             </p>
             <p>
               By day I write Java, grind DSA, and explore data and AI. By night I'm in the studio -

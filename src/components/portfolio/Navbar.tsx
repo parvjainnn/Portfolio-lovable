@@ -51,7 +51,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <a href="#contact" data-cursor className="hidden sm:inline-flex items-center rounded-full bg-gradient-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition shadow-glow">
-              Let's talk
+              Hire me
             </a>
             <button aria-label="Menu" onClick={() => setOpen((o) => !o)} className="lg:hidden p-2 rounded-lg hover:bg-foreground/5">
               {open ? <X size={20} /> : <Menu size={20} />}
