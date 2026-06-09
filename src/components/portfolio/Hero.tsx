@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Github, Linkedin, Mail, Twitter, Instagram } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, Download, Github, Linkedin, Mail, Twitter, Instagram, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Hero3D = lazy(() => import("./Hero3D").then((m) => ({ default: m.Hero3D })));
 
@@ -13,188 +13,97 @@ function RoleCycler() {
     return () => clearInterval(t);
   }, []);
   return (
-    <div
-      className="flex items-center"
-      style={{
-        fontFamily: "'JetBrains Mono', monospace",
-        fontSize: 14,
-        height: 22,
-        gap: 6,
-        marginBottom: "var(--sp-10)",
-      }}
-      aria-live="polite"
-    >
-      <span style={{ color: "var(--text-muted)" }}>→</span>
+    <div className="mt-5 font-mono text-sm text-muted-foreground flex items-center gap-2 h-6" aria-live="polite">
+      <span className="text-primary">›</span>
       <AnimatePresence mode="wait">
         <motion.span
           key={roles[i]}
-          initial={{ opacity: 0, y: 4 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -4 }}
-          transition={{ duration: 0.3 }}
-          style={{ color: "var(--accent)" }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.35 }}
+          className="inline-block"
         >
           {roles[i]}
         </motion.span>
       </AnimatePresence>
+      <span className="opacity-60">· {roles.filter((_, idx) => idx !== i).join(" · ")}</span>
     </div>
   );
 }
 
-const socials = [
-  { href: "mailto:hello@parvjain.dev", icon: Mail, label: "Email" },
-  { href: "https://github.com/parvjainnn", icon: Github, label: "GitHub" },
-  { href: "https://www.linkedin.com/in/parvjainnn", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://x.com/parvjainnn", icon: Twitter, label: "X" },
-  { href: "https://instagram.com/parvjainnn", icon: Instagram, label: "Instagram" },
-];
-
 export function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section
-      id="home"
-      className="relative flex items-center"
-      style={{
-        minHeight: "100vh",
-        paddingTop: 120,
-        paddingBottom: "var(--sp-16)",
-        background:
-          "radial-gradient(ellipse 800px 600px at 10% 50%, rgba(31, 111, 235, 0.06) 0%, transparent 70%)",
-      }}
-    >
-      <div
-        className="mx-auto w-full grid lg:grid-cols-[1fr_400px] gap-10 items-center"
-        style={{ maxWidth: 1200, padding: "0 var(--sp-8)" }}
-      >
+    <section id="home" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+      <motion.div
+        style={{ y: scrollY * 0.3 }}
+        className="absolute -top-20 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-primary/30 blur-[120px] pointer-events-none"
+      />
+      <motion.div
+        style={{ y: scrollY * -0.15 }}
+        className="absolute bottom-10 right-10 h-[300px] w-[300px] rounded-full bg-accent/30 blur-[100px] pointer-events-none"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 w-full grid lg:grid-cols-2 gap-10 items-center">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          style={{ maxWidth: 900 }}
+          transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
         >
-          {/* Status badge */}
-          <div
-            className="inline-flex items-center"
-            style={{
-              background: "rgba(63, 185, 80, 0.1)",
-              border: "1px solid rgba(63, 185, 80, 0.3)",
-              color: "var(--green)",
-              fontFamily: "'JetBrains Mono', monospace",
-              fontWeight: 500,
-              fontSize: 12,
-              padding: "4px 12px",
-              borderRadius: "var(--radius-full, 9999px)",
-              gap: 6,
-              marginBottom: "var(--sp-6)",
-            }}
-          >
-            <span
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: "50%",
-                background: "var(--green)",
-                animation: "pulse-dot 2s ease-in-out infinite",
-              }}
-            />
+          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 - Home</p>
+
+          <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs font-mono text-muted-foreground mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-glow" />
             Available for opportunities
           </div>
 
-          {/* Display name */}
-          <h1
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(56px, 9vw, 96px)",
-              color: "var(--text-primary)",
-              letterSpacing: "-0.04em",
-              lineHeight: 0.95,
-              marginBottom: "var(--sp-6)",
-            }}
-          >
-            Parv Jain.
+          <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-black leading-[0.95] tracking-[-0.04em]">
+            <span className="text-gradient">Parv Jain</span>
+            <span className="text-foreground">.</span>
           </h1>
 
-          {/* Subtitle */}
-          <p
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(18px, 2.5vw, 22px)",
-              color: "var(--text-muted)",
-              lineHeight: 1.6,
-              maxWidth: 560,
-              marginBottom: "var(--sp-6)",
-            }}
-          >
-            I build software that works and visuals that land — Java, AI, and cinematic creative
-            work. Engineering student open to internships and freelance.
+          <p className="mt-7 text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
+            I build software that works and visuals that land - Java, AI, and cinematic creative
+            work. Engineering student. Open to internships and freelance.
           </p>
 
           <RoleCycler />
 
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center" style={{ gap: "var(--sp-3)", marginBottom: "var(--sp-10)" }}>
-            <a
-              href="#projects"
-              data-cursor
-              className="inline-flex items-center"
-              style={{
-                background: "var(--accent)",
-                color: "#080B0F",
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 600,
-                fontSize: 14,
-                padding: "12px var(--sp-6)",
-                borderRadius: "var(--radius-md)",
-                transition: "all 150ms ease",
-              }}
-              onMouseDown={(e) => (e.currentTarget.style.transform = "translateY(0)")}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#79C0FF";
-                e.currentTarget.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "var(--accent)";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <a href="#projects" data-cursor className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:translate-y-[-2px] transition-all">
               See what I've built
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="/resume.pdf"
               download
+              data-cursor
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor
-              className="inline-flex items-center"
-              style={{
-                background: "transparent",
-                border: "1px solid var(--border-default)",
-                color: "var(--text-secondary)",
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 500,
-                fontSize: 14,
-                padding: "12px var(--sp-6)",
-                borderRadius: "var(--radius-md)",
-                transition: "all 150ms ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--border-strong)";
-                e.currentTarget.style.color = "var(--text-primary)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--border-default)";
-                e.currentTarget.style.color = "var(--text-secondary)";
-              }}
+              aria-label="Download Parv Jain's resume PDF"
+              className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 font-medium hover:bg-foreground/5 hover:shadow-glow transition"
             >
-              Resume (2026) ↓
+              <Download size={18} />
+              Resume (Updated 2026) ↓
             </a>
           </div>
 
-          {/* Social row */}
-          <div className="flex flex-wrap items-center" style={{ gap: "var(--sp-5)", marginBottom: "var(--sp-8)" }}>
-            {socials.map(({ href, icon: Icon, label }) => (
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            {[
+              { href: "mailto:hello@parvjain.dev", icon: Mail, label: "Email" },
+              { href: "https://github.com/parvjainnn", icon: Github, label: "GitHub" },
+              { href: "https://www.linkedin.com/in/parvjainnn", icon: Linkedin, label: "LinkedIn" },
+              { href: "https://x.com/parvjainnn", icon: Twitter, label: "X" },
+              { href: "https://instagram.com/parvjainnn", icon: Instagram, label: "Instagram" },
+            ].map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
                 href={href}
@@ -202,42 +111,38 @@ export function Hero() {
                 data-cursor
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center justify-center"
-                style={{
-                  minWidth: 44,
-                  minHeight: 44,
-                  color: "var(--text-muted)",
-                  transition: "color 150ms ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+                className="group relative inline-flex items-center gap-2 min-h-[44px] min-w-[44px] px-3 rounded-full glass text-muted-foreground hover:text-foreground hover:shadow-glow hover:-translate-y-0.5 transition-all"
               >
-                <Icon size={18} />
+                <Icon size={20} />
+                <span className="text-xs font-mono">{label}</span>
               </a>
             ))}
           </div>
 
-          {/* Status strip */}
-          <p
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontWeight: 400,
-              fontSize: 12,
-              color: "var(--text-muted)",
-            }}
+          {/* Currently building strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="mt-6 inline-flex flex-wrap items-center gap-2 px-4 py-2 rounded-full glass text-xs font-mono text-muted-foreground shadow-glow"
           >
-            Currently building: HealthTwin AI v2  ·  Open to internship & freelance — Summer/Fall 2026
-          </p>
+            <Sparkles size={12} className="text-primary" />
+            <span>
+              <span className="text-foreground/80">Currently building:</span>{" "}
+              <span className="text-gradient font-semibold">HealthTwin AI v2</span>
+            </span>
+            <span className="opacity-40">·</span>
+            <span>Open to internship roles for Summer/Fall 2026</span>
+          </motion.div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="relative hidden lg:block"
-          style={{ height: 460 }}
+          transition={{ duration: 1, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
+          className="relative h-[420px] sm:h-[500px] lg:h-[560px] order-first lg:order-last"
         >
-          <Suspense fallback={<div className="h-full w-full editorial-card animate-pulse" />}>
+          <Suspense fallback={<div className="h-full w-full rounded-3xl glass animate-pulse" />}>
             <Hero3D />
           </Suspense>
         </motion.div>

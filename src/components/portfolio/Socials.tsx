@@ -1,141 +1,111 @@
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Download, Mail, Sparkles, Quote } from "lucide-react";
+
+const testimonials = [
+  {
+    quote: "[Add real quote here] Parv pairs solid engineering with a designer's eye - rare combo. He shipped fast and the result felt thought-through end to end.",
+    name: "[Add name]",
+    role: "Collaborator, Class Project",
+    initials: "AB",
+  },
+  {
+    quote: "[Add real quote here] The gift was absolutely beautiful and the personalization was spot on. You can tell every detail was cared for.",
+    name: "[Add name]",
+    role: "Parv Gift Customer",
+    initials: "CD",
+  },
+];
 
 export function Socials() {
   return (
-    <section id="contact" style={{ padding: "var(--sp-20) 0 var(--sp-12)" }}>
-      <div className="mx-auto" style={{ maxWidth: 1200, padding: "0 var(--sp-8)" }}>
-        <motion.p
-          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="section-label" style={{ marginBottom: "var(--sp-6)" }}
+    <section id="contact" className="relative py-24 sm:py-32">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        {/* TESTIMONIALS - unhide when quotes are ready. Replace AB/CD initials and placeholder text first. */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+          style={{ display: "none" }}
         >
-          <span className="num">09</span> — Contact
-        </motion.p>
+          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 text-center">What people say</p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-center mb-10">
+            Words from <span className="text-gradient">collaborators</span>.
+          </h3>
+          <div className="grid md:grid-cols-2 gap-5">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="glass rounded-2xl p-6 shadow-card border border-border relative"
+              >
+                <Quote size={20} className="text-primary/40 mb-3" />
+                <p className="text-sm text-foreground/85 leading-relaxed">{t.quote}</p>
+                <div className="mt-5 flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-glow">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold">- {t.name}</div>
+                    <div className="text-xs font-mono text-muted-foreground">{t.role}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(40px, 6vw, 72px)",
-            color: "var(--text-primary)",
-            letterSpacing: "-0.03em",
-            lineHeight: 1.05,
-            marginBottom: "var(--sp-4)",
-          }}
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
         >
-          Let's talk.
-        </motion.h2>
+          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
+            <Sparkles size={12} /> 09 - Contact
+          </p>
+          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight">
+            Let's <span className="text-gradient">talk</span>.
+          </h2>
+          <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
+            Available for internships, freelance projects, and creative collaborations. I reply within 24 hours.
+          </p>
 
-        <p
-          style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontWeight: 400,
-            fontSize: 18,
-            color: "var(--text-muted)",
-            maxWidth: 480,
-            lineHeight: 1.6,
-            marginBottom: "var(--sp-10)",
-          }}
-        >
-          Available for internships, freelance projects, and creative collaborations. I reply within 24 hours.
-        </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="mailto:hello@parvjain.dev"
+              data-cursor
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:translate-y-[-2px] transition-all"
+            >
+              <Mail size={18} />
+              hello@parvjain.dev
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download Parv Jain's resume PDF"
+              data-cursor
+              className="group inline-flex items-center gap-2 rounded-full glass px-6 py-3 font-medium hover:bg-foreground/5 hover:shadow-glow transition-all"
+            >
+              <Download size={18} className="group-hover:-translate-y-0.5 transition-transform" />
+              Resume (Updated 2026) ↓
+            </a>
+          </div>
+        </motion.div>
 
-        <div className="flex flex-wrap items-center" style={{ gap: "var(--sp-4)" }}>
-          <a
-            href="mailto:hello@parvjain.dev"
-            data-cursor
-            className="inline-flex items-center"
-            style={{
-              gap: 12,
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 600,
-              fontSize: 16,
-              color: "var(--accent)",
-              border: "1px solid rgba(88, 166, 255, 0.3)",
-              padding: "14px var(--sp-8)",
-              borderRadius: "var(--radius-md)",
-              transition: "all 150ms ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(88, 166, 255, 0.08)";
-              e.currentTarget.style.borderColor = "var(--accent)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.borderColor = "rgba(88, 166, 255, 0.3)";
-            }}
-          >
-            <Mail size={18} />
-            hello@parvjain.dev
-          </a>
-          <a
-            href="/resume.pdf"
-            download
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cursor
-            className="inline-flex items-center"
-            style={{
-              background: "transparent",
-              border: "1px solid var(--border-default)",
-              color: "var(--text-secondary)",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 500,
-              fontSize: 16,
-              padding: "14px var(--sp-8)",
-              borderRadius: "var(--radius-md)",
-              transition: "all 150ms ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--border-strong)";
-              e.currentTarget.style.color = "var(--text-primary)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--border-default)";
-              e.currentTarget.style.color = "var(--text-secondary)";
-            }}
-          >
-            Resume (2026) ↓
-          </a>
-        </div>
+        <footer className="mt-20 flex items-center justify-center text-sm text-muted-foreground border-t border-border pt-8">
+          <p>© 2026 Parv Jain · Designed & built by Parv.</p>
+        </footer>
       </div>
-
-      {/* Footer */}
-      <footer
-        className="mx-auto flex flex-wrap items-center justify-between"
-        style={{
-          maxWidth: 1200,
-          padding: "var(--sp-8)",
-          marginTop: "var(--sp-20)",
-          borderTop: "1px solid var(--border-subtle)",
-          gap: "var(--sp-4)",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontWeight: 700,
-            fontSize: 18,
-            color: "var(--text-primary)",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          parv.
-        </span>
-        <span
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontWeight: 400,
-            fontSize: 12,
-            color: "var(--text-muted)",
-          }}
-        >
-          © 2026 Parv Jain · Designed & built by Parv.
-        </span>
-      </footer>
     </section>
   );
 }
