@@ -1,4 +1,4 @@
-import resumeUrl from "@/assets/resume.pdf?url";
+import { url as resumeUrl } from "@/assets/resume.pdf.asset.json";
 import { motion } from "framer-motion";
 import { Download, Mail, Sparkles, Quote } from "lucide-react";
 

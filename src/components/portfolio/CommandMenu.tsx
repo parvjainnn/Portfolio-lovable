@@ -1,4 +1,4 @@
-import resumeUrl from "@/assets/resume.pdf?url";
+import { url as resumeUrl } from "@/assets/resume.pdf.asset.json";
 import { useEffect, useState } from "react";
 import {
   CommandDialog,

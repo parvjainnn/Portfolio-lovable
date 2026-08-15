@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { ArrowRight, Download, Github, Linkedin, Mail, Twitter, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import resumeUrl from "@/assets/resume.pdf?url";
+import { url as resumeUrl } from "@/assets/resume.pdf.asset.json";
 
 const Hero3D = lazy(() => import("./Hero3D").then((m) => ({ default: m.Hero3D })));
 
