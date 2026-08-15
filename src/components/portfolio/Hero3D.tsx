@@ -29,11 +29,11 @@ function Blob() {
     <Float speed={1} rotationIntensity={0.35} floatIntensity={0.7}>
       <Icosahedron ref={ref} args={[1.4, 4]}>
         <MeshDistortMaterial
-          color="#3A3D44"
+          color="#212429"
           emissive="#C98B45"
-          emissiveIntensity={0.06}
-          roughness={0.42}
-          metalness={0.5}
+          emissiveIntensity={0.02}
+          roughness={0.62}
+          metalness={0.2}
           distort={0.28}
           speed={1.1}
         />
@@ -62,7 +62,7 @@ export function Hero3D() {
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.4} />
-        <directionalLight position={[5, 5, 5]} intensity={0.9} color="#EADFCF" />
+        <directionalLight position={[5, 5, 5]} intensity={0.9} color="#FFFFFF" />
         <directionalLight position={[-5, -3, -3]} intensity={0.5} color="#7A7F8A" />
         <Blob />
         <FloatingShape position={[-2.4, 1.2, -1]} color="#8A8F98" />
@@ -70,7 +70,7 @@ export function Hero3D() {
         <FloatingShape position={[2.2, 1.6, -2]} color="#8A8F98" size={0.25} />
         <FloatingShape position={[-2.6, -1.4, -2]} color="#C98B45" size={0.3} />
         <Particles />
-        <Environment preset="city" />
+        <Environment preset="night" />
       </Suspense>
     </Canvas>
   );
