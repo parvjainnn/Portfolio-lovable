@@ -64,7 +64,7 @@ export function ServicePage(p: ServicePageProps) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-xs uppercase tracking-widest text-primary inline-flex items-center gap-2"
+            className="section-label inline-flex items-center gap-2"
           >
             <Sparkles size={12} /> {p.eyebrow}
           </motion.p>
@@ -93,9 +93,9 @@ export function ServicePage(p: ServicePageProps) {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.05 }}
-                className="glass rounded-2xl p-5"
+                className="glass rounded-lg p-5"
               >
-                <div className="text-3xl font-display font-bold text-gradient">{s.value}</div>
+                <div className="text-3xl font-display font-semibold text-foreground">{s.value}</div>
                 <div className="text-xs text-muted-foreground mt-1 font-mono uppercase tracking-wider">{s.label}</div>
               </motion.div>
             ))}
@@ -113,7 +113,7 @@ export function ServicePage(p: ServicePageProps) {
                 onClick={() => setFilter(c)}
                 className={`text-xs font-mono px-3 py-1.5 rounded-full border transition-all ${
                   filter === c
-                    ? "bg-gradient-primary text-primary-foreground border-transparent shadow-glow"
+                    ? "bg-primary text-primary-foreground border-transparent"
                     : "border-border text-muted-foreground hover:text-foreground hover:bg-foreground/5"
                 }`}
               >
@@ -156,7 +156,7 @@ export function ServicePage(p: ServicePageProps) {
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   whileHover={{ y: -6 }}
                   onClick={() => setActive(proj)}
-                  className="group text-left glass rounded-3xl overflow-hidden hover:shadow-elegant transition-all"
+                  className="group text-left glass rounded-lg overflow-hidden hover:shadow-elegant transition-all"
                   data-cursor
                 >
                   <div className={`relative aspect-[4/3] overflow-hidden ${proj.cover}`}>
@@ -169,7 +169,7 @@ export function ServicePage(p: ServicePageProps) {
                         {proj.meta.duration}
                       </div>
                     )}
-                    <div className="absolute bottom-3 right-3 h-9 w-9 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                    <div className="absolute bottom-3 right-3 h-9 w-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
                       <ArrowUpRight size={16} />
                     </div>
                   </div>
@@ -197,7 +197,7 @@ export function ServicePage(p: ServicePageProps) {
       {/* PROCESS TIMELINE */}
       <section className="relative py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">Workflow</p>
+          <p className="section-label mb-4">Workflow</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 max-w-2xl">A process built for precision.</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {p.process.map((step, i) => (
@@ -207,7 +207,7 @@ export function ServicePage(p: ServicePageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="glass rounded-2xl p-6 relative"
+                className="glass rounded-lg p-6 relative"
               >
                 <div className="text-xs font-mono text-muted-foreground">0{i + 1}</div>
                 <h3 className="font-display text-lg font-semibold mt-2">{step.step}</h3>
@@ -221,7 +221,7 @@ export function ServicePage(p: ServicePageProps) {
       {/* TESTIMONIALS */}
       <section className="relative py-12">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">Kind words</p>
+          <p className="section-label mb-4">Kind words</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 max-w-2xl">Trusted by collaborators.</h2>
           <div className="grid md:grid-cols-3 gap-5">
             {p.testimonials.map((t, i) => (
@@ -231,7 +231,7 @@ export function ServicePage(p: ServicePageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="glass rounded-2xl p-6"
+                className="glass rounded-lg p-6"
               >
                 <p className="text-sm leading-relaxed">"{t.quote}"</p>
                 <footer className="mt-4 text-xs font-mono text-muted-foreground">
@@ -249,7 +249,7 @@ export function ServicePage(p: ServicePageProps) {
           <div className="relative overflow-hidden glass rounded-[2rem] p-10 sm:p-14 text-center">
             <div className="absolute -top-20 -left-20 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
             <div className="absolute -bottom-20 -right-20 h-80 w-80 rounded-full bg-accent/30 blur-3xl" />
-            <h2 className="relative font-display text-4xl sm:text-5xl font-bold leading-tight">
+            <h2 className="relative font-display text-3xl sm:text-4xl font-semibold leading-tight">
               Let's <span className="text-gradient">work together</span>.
             </h2>
             <p className="relative mt-4 text-muted-foreground max-w-xl mx-auto">
@@ -257,8 +257,8 @@ export function ServicePage(p: ServicePageProps) {
             </p>
             <div className="relative mt-8 flex flex-wrap justify-center gap-3">
               <a
-                href="mailto:hello@parvjain.dev"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:opacity-95 hover:-translate-y-0.5 transition-all"
+                href="mailto:jainparv.cse@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:opacity-95 hover:-translate-y-0.5 transition-all"
               >
                 <Mail size={16} /> Start a project
               </a>
@@ -299,7 +299,7 @@ export function ServicePage(p: ServicePageProps) {
               exit={{ y: 20, opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl glass rounded-3xl overflow-hidden my-8"
+              className="relative w-full max-w-4xl glass rounded-lg overflow-hidden my-8"
             >
               <button
                 onClick={() => setActive(null)}
@@ -319,7 +319,7 @@ export function ServicePage(p: ServicePageProps) {
                 <p className="text-muted-foreground leading-relaxed">{active.details.overview}</p>
 
                 {active.details.video && (
-                  <div className="aspect-video rounded-2xl overflow-hidden bg-black">
+                  <div className="aspect-video rounded-lg overflow-hidden bg-black">
                     <iframe
                       src={active.details.video}
                       className="w-full h-full"
@@ -333,11 +333,11 @@ export function ServicePage(p: ServicePageProps) {
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div>
                       <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">Before</div>
-                      <div className={`aspect-square rounded-2xl ${active.details.images.before}`} />
+                      <div className={`aspect-square rounded-lg ${active.details.images.before}`} />
                     </div>
                     <div>
                       <div className="text-[10px] font-mono uppercase tracking-widest text-primary mb-2">After</div>
-                      <div className={`aspect-square rounded-2xl ${active.details.images.after}`} />
+                      <div className={`aspect-square rounded-lg ${active.details.images.after}`} />
                     </div>
                   </div>
                 )}

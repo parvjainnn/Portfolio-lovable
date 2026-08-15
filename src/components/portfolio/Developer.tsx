@@ -28,10 +28,10 @@ export function Developer() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Terminal size={12} /> 04 - Developer
+            <p className="section-label mb-4 inline-flex items-center gap-2">
+              <Terminal size={12} /> 04 / Developer
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
               Engineer mode: <span className="text-gradient">always on</span>.
             </h2>
           </motion.div>
@@ -47,7 +47,7 @@ export function Developer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-3 glass rounded-3xl overflow-hidden shadow-elegant"
+            className="lg:col-span-3 glass rounded-lg overflow-hidden shadow-elegant"
           >
             <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-foreground/[0.03]">
               <span className="h-3 w-3 rounded-full bg-rose-400/80" />
@@ -89,9 +89,9 @@ export function Developer() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08, duration: 0.5 }}
-                  className="glass rounded-2xl p-4 shadow-card"
+                  className="glass rounded-lg p-4 shadow-card"
                 >
-                  <div className="text-2xl sm:text-3xl font-display font-bold text-gradient">{s.k}</div>
+                  <div className="text-3xl font-display font-semibold text-foreground">{s.k}</div>
                   <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
                 </motion.div>
               ))}
@@ -103,7 +103,7 @@ export function Developer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 data-cursor
-                className="group glass rounded-2xl p-4 flex items-center gap-3 hover:shadow-glow transition"
+                className="group glass rounded-lg p-4 flex items-center gap-3  transition"
               >
                 <div className="h-10 w-10 rounded-xl bg-foreground/5 flex items-center justify-center">
                   <Github size={18} />
@@ -119,7 +119,7 @@ export function Developer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 data-cursor
-                className="group glass rounded-2xl p-4 flex items-center gap-3 hover:shadow-glow transition"
+                className="group glass rounded-lg p-4 flex items-center gap-3  transition"
               >
                 <div className="h-10 w-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center">
                   <Code2 size={18} />

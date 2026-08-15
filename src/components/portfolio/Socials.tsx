@@ -1,3 +1,4 @@
+import { url as resumeUrl } from "@/assets/resume.pdf.asset.json";
 import { motion } from "framer-motion";
 import { Download, Mail, Sparkles, Quote } from "lucide-react";
 
@@ -30,7 +31,7 @@ export function Socials() {
           className="mb-20"
           style={{ display: "none" }}
         >
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 text-center">What people say</p>
+          <p className="section-label mb-4 text-center">What people say</p>
           <h3 className="text-2xl sm:text-3xl font-bold text-center mb-10">
             Words from <span className="text-gradient">collaborators</span>.
           </h3>
@@ -42,12 +43,12 @@ export function Socials() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="glass rounded-2xl p-6 shadow-card border border-border relative"
+                className="glass rounded-lg p-6 shadow-card border border-border relative"
               >
                 <Quote size={20} className="text-primary/40 mb-3" />
                 <p className="text-sm text-foreground/85 leading-relaxed">{t.quote}</p>
                 <div className="mt-5 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-glow">
+                  <div className="h-10 w-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
                     {t.initials}
                   </div>
                   <div>
@@ -68,8 +69,8 @@ export function Socials() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-            <Sparkles size={12} /> 09 - Contact
+          <p className="section-label mb-4 inline-flex items-center gap-2">
+            <Sparkles size={12} /> 09 / Contact
           </p>
           <h2 className="text-4xl sm:text-6xl font-bold tracking-tight">
             Let's <span className="text-gradient">talk</span>.
@@ -80,21 +81,21 @@ export function Socials() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="mailto:hello@parvjain.dev"
+              href="mailto:jainparv.cse@gmail.com"
               data-cursor
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:translate-y-[-2px] transition-all"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:translate-y-[-2px] transition-all"
             >
               <Mail size={18} />
-              hello@parvjain.dev
+              jainparv.cse@gmail.com
             </a>
             <a
-              href="/resume.pdf"
+              href={resumeUrl}
               download
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download Parv Jain's resume PDF"
               data-cursor
-              className="group inline-flex items-center gap-2 rounded-full glass px-6 py-3 font-medium hover:bg-foreground/5 hover:shadow-glow transition-all"
+              className="group inline-flex items-center gap-2 rounded-full glass px-6 py-3 font-medium hover:bg-foreground/5  transition-all"
             >
               <Download size={18} className="group-hover:-translate-y-0.5 transition-transform" />
               Resume (Updated 2026) ↓

@@ -7,7 +7,7 @@ const profiles = [
     handle: "@parvjainnn",
     href: "https://github.com/parvjainnn",
     icon: Github,
-    accent: "var(--primary)",
+    accent: "#E6E1D7",
     stats: [
       { label: "Repositories", value: "12+" },
       { label: "Contributions", value: "200+" },
@@ -21,7 +21,7 @@ const profiles = [
     handle: "u/parvjainnn",
     href: "https://leetcode.com/u/parvjainnn",
     icon: Code2,
-    accent: "#FFA116",
+    accent: "#D99A4E",
     stats: [
       { label: "Problems", value: "300+" },
       { label: "Topics", value: "DSA" },
@@ -57,10 +57,10 @@ export function CodingProfiles() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Terminal size={12} /> 07 - Coding Profiles
+            <p className="section-label mb-4 inline-flex items-center gap-2">
+              <Terminal size={12} /> 07 / Coding Profiles
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
               Where the <span className="text-gradient">commits</span> live.
             </h2>
           </motion.div>
@@ -85,13 +85,13 @@ export function CodingProfiles() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="group relative rounded-3xl overflow-hidden glass shadow-card hover:shadow-elegant transition-shadow"
+                className="group relative rounded-lg overflow-hidden glass shadow-card hover:shadow-elegant transition-shadow"
                 style={{ ['--accent-glow' as string]: p.accent }}
               >
                 {/* glowing border on hover */}
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     boxShadow: `inset 0 0 0 1px ${p.accent}66, 0 0 40px -8px ${p.accent}55`,
                   }}
@@ -114,10 +114,10 @@ export function CodingProfiles() {
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-5">
                     <div
-                      className="h-12 w-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                      className="h-12 w-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        background: `linear-gradient(135deg, ${p.accent}33, ${p.accent}10)`,
-                        boxShadow: `0 0 0 1px ${p.accent}55, 0 10px 30px -12px ${p.accent}aa`,
+                        background: `${p.accent}14`,
+                        boxShadow: `inset 0 0 0 1px ${p.accent}33`,
                       }}
                     >
                       <Icon size={22} style={{ color: p.accent }} />
@@ -151,11 +151,10 @@ export function CodingProfiles() {
 
                   <div className="flex items-center justify-between">
                     <span
-                      className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full font-medium transition-all"
+                      className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-md font-medium transition-all"
                       style={{
-                        background: `linear-gradient(135deg, ${p.accent}, ${p.accent}cc)`,
-                        color: "#0a0a0a",
-                        boxShadow: `0 8px 24px -10px ${p.accent}cc`,
+                        background: p.accent,
+                        color: "#141416",
                       }}
                     >
                       Visit
