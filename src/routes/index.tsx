@@ -9,7 +9,6 @@ import { Services } from "@/components/portfolio/Services";
 import { CodingProfiles } from "@/components/portfolio/CodingProfiles";
 import { SocialMedia } from "@/components/portfolio/SocialMedia";
 import { Socials } from "@/components/portfolio/Socials";
-import { CursorGlow } from "@/components/portfolio/CursorGlow";
 import { CommandMenu } from "@/components/portfolio/CommandMenu";
 
 export const Route = createFileRoute("/")({
@@ -28,7 +27,6 @@ function Index() {
   return (
     <main className="relative min-h-screen text-foreground overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div aria-hidden className="pointer-events-none fixed inset-0 z-0 noise-overlay" />
-      <CursorGlow />
       <CommandMenu />
       <Navbar />
       <div className="relative z-10">

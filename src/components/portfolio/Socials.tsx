@@ -1,3 +1,4 @@
+import resumeUrl from "@/assets/resume.pdf?url";
 import { motion } from "framer-motion";
 import { Download, Mail, Sparkles, Quote } from "lucide-react";
 
@@ -88,7 +89,7 @@ export function Socials() {
               jainparv.cse@gmail.com
             </a>
             <a
-              href="/resume.pdf"
+              href={resumeUrl}
               download
               target="_blank"
               rel="noopener noreferrer"

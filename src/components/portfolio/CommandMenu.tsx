@@ -1,3 +1,4 @@
+import resumeUrl from "@/assets/resume.pdf?url";
 import { useEffect, useState } from "react";
 import {
   CommandDialog,
@@ -83,7 +84,7 @@ export function CommandMenu() {
     { label: "X / Twitter", icon: Twitter, action: go("https://x.com/parvjainnn") },
     { label: "Instagram", icon: Instagram, action: go("https://instagram.com/parvjainnn") },
     { label: "Email me", icon: Mail, action: go("mailto:jainparv.cse@gmail.com") },
-    { label: "Download Resume", icon: Download, action: go("/resume.pdf") },
+    { label: "Download Resume", icon: Download, action: go(resumeUrl) },
   ];
 
   return (

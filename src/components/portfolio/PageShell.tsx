@@ -1,12 +1,10 @@
 import { ReactNode } from "react";
 import { Navbar } from "./Navbar";
-import { CursorGlow } from "./CursorGlow";
 import { Instagram, Twitter, Github, Linkedin, Mail } from "lucide-react";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
     <main className="relative min-h-screen text-foreground" style={{ background: "var(--gradient-hero)" }}>
-      <CursorGlow />
       <Navbar />
       {children}
       <footer className="border-t border-border mt-24">
