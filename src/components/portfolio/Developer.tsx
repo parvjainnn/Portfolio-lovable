@@ -91,7 +91,7 @@ export function Developer() {
                   transition={{ delay: i * 0.08, duration: 0.5 }}
                   className="glass rounded-lg p-4 shadow-card"
                 >
-                  <div className="text-2xl sm:text-3xl font-display font-bold text-gradient">{s.k}</div>
+                  <div className="text-3xl font-display font-semibold text-foreground">{s.k}</div>
                   <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
                 </motion.div>
               ))}
