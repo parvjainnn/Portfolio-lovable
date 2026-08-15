@@ -6,14 +6,14 @@ import * as THREE from "three";
 function Particles() {
   const ref = useRef<THREE.Points>(null);
   const positions = (() => {
-    const arr = new Float32Array(800 * 3);
+    const arr = new Float32Array(420 * 3);
     for (let i = 0; i < arr.length; i++) arr[i] = (Math.random() - 0.5) * 14;
     return arr;
   })();
   useFrame((_, dt) => { if (ref.current) ref.current.rotation.y += dt * 0.03; });
   return (
     <Points ref={ref} positions={positions} stride={3} frustumCulled>
-      <PointMaterial transparent size={0.025} sizeAttenuation depthWrite={false} color="#22D3EE" opacity={0.6} />
+      <PointMaterial transparent size={0.025} sizeAttenuation depthWrite={false} color="#9AA0A6" opacity={0.35} />
     </Points>
   );
 }
@@ -26,16 +26,16 @@ function Blob() {
     ref.current.rotation.y = state.clock.elapsedTime * 0.2;
   });
   return (
-    <Float speed={1.4} rotationIntensity={0.6} floatIntensity={1.2}>
+    <Float speed={1} rotationIntensity={0.35} floatIntensity={0.7}>
       <Icosahedron ref={ref} args={[1.4, 4]}>
         <MeshDistortMaterial
-          color="#4F46E5"
-          emissive="#22D3EE"
-          emissiveIntensity={0.25}
-          roughness={0.15}
-          metalness={0.6}
-          distort={0.45}
-          speed={1.6}
+          color="#3A3D44"
+          emissive="#C98B45"
+          emissiveIntensity={0.06}
+          roughness={0.42}
+          metalness={0.5}
+          distort={0.28}
+          speed={1.1}
         />
       </Icosahedron>
     </Float>
@@ -44,10 +44,10 @@ function Blob() {
 
 function FloatingShape({ position, color, size = 0.35 }: { position: [number, number, number]; color: string; size?: number }) {
   return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+    <Float speed={1.2} rotationIntensity={0.5} floatIntensity={1}>
       <mesh position={position}>
         <octahedronGeometry args={[size, 0]} />
-        <meshStandardMaterial color={color} metalness={0.7} roughness={0.2} emissive={color} emissiveIntensity={0.3} />
+        <meshStandardMaterial color={color} metalness={0.55} roughness={0.4} emissive={color} emissiveIntensity={0.08} />
       </mesh>
     </Float>
   );
@@ -62,13 +62,13 @@ export function Hero3D() {
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.4} />
-        <directionalLight position={[5, 5, 5]} intensity={1.2} color="#22D3EE" />
-        <directionalLight position={[-5, -3, -3]} intensity={0.8} color="#4F46E5" />
+        <directionalLight position={[5, 5, 5]} intensity={0.9} color="#EADFCF" />
+        <directionalLight position={[-5, -3, -3]} intensity={0.5} color="#7A7F8A" />
         <Blob />
-        <FloatingShape position={[-2.4, 1.2, -1]} color="#22D3EE" />
-        <FloatingShape position={[2.6, -1.1, -1.5]} color="#4F46E5" size={0.45} />
-        <FloatingShape position={[2.2, 1.6, -2]} color="#22D3EE" size={0.25} />
-        <FloatingShape position={[-2.6, -1.4, -2]} color="#4F46E5" size={0.3} />
+        <FloatingShape position={[-2.4, 1.2, -1]} color="#8A8F98" />
+        <FloatingShape position={[2.6, -1.1, -1.5]} color="#C98B45" size={0.45} />
+        <FloatingShape position={[2.2, 1.6, -2]} color="#8A8F98" size={0.25} />
+        <FloatingShape position={[-2.6, -1.4, -2]} color="#C98B45" size={0.3} />
         <Particles />
         <Environment preset="city" />
       </Suspense>
