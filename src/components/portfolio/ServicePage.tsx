@@ -95,7 +95,7 @@ export function ServicePage(p: ServicePageProps) {
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.05 }}
                 className="glass rounded-lg p-5"
               >
-                <div className="text-3xl font-display font-bold text-gradient">{s.value}</div>
+                <div className="text-3xl font-display font-semibold text-foreground">{s.value}</div>
                 <div className="text-xs text-muted-foreground mt-1 font-mono uppercase tracking-wider">{s.label}</div>
               </motion.div>
             ))}
