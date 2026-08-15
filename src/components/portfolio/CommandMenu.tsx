@@ -82,7 +82,7 @@ export function CommandMenu() {
     { label: "LinkedIn", icon: Linkedin, action: go("https://www.linkedin.com/in/parvjainnn") },
     { label: "X / Twitter", icon: Twitter, action: go("https://x.com/parvjainnn") },
     { label: "Instagram", icon: Instagram, action: go("https://instagram.com/parvjainnn") },
-    { label: "Email me", icon: Mail, action: go("mailto:hello@parvjain.dev") },
+    { label: "Email me", icon: Mail, action: go("mailto:jainparv.cse@gmail.com") },
     { label: "Download Resume", icon: Download, action: go("/resume.pdf") },
   ];
 

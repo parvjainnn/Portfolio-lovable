@@ -257,7 +257,7 @@ export function ServicePage(p: ServicePageProps) {
             </p>
             <div className="relative mt-8 flex flex-wrap justify-center gap-3">
               <a
-                href="mailto:hello@parvjain.dev"
+                href="mailto:jainparv.cse@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:opacity-95 hover:-translate-y-0.5 transition-all"
               >
                 <Mail size={16} /> Start a project

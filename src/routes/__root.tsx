@@ -66,7 +66,7 @@ export const Route = createRootRoute({
             "https://x.com/parvjainnn",
           ],
           jobTitle: "Developer & Creative Technologist",
-          email: "hello@parvjain.dev",
+          email: "jainparv.cse@gmail.com",
         }),
       },
     ],

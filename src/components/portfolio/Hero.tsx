@@ -98,7 +98,7 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
             {[
-              { href: "mailto:hello@parvjain.dev", icon: Mail, label: "Email" },
+              { href: "mailto:jainparv.cse@gmail.com", icon: Mail, label: "Email" },
               { href: "https://github.com/parvjainnn", icon: Github, label: "GitHub" },
               { href: "https://www.linkedin.com/in/parvjainnn", icon: Linkedin, label: "LinkedIn" },
               { href: "https://x.com/parvjainnn", icon: Twitter, label: "X" },

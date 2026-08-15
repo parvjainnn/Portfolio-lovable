@@ -14,7 +14,7 @@ export function PageShell({ children }: { children: ReactNode }) {
           <p>© {new Date().getFullYear()} Parv Jain. Crafted with care.</p>
           <div className="flex items-center gap-4">
             {[
-              { href: "mailto:hello@parvjain.dev", icon: Mail, label: "Email" },
+              { href: "mailto:jainparv.cse@gmail.com", icon: Mail, label: "Email" },
               { href: "https://github.com/parvjainnn", icon: Github, label: "GitHub" },
               { href: "https://www.linkedin.com/in/parvjainnn", icon: Linkedin, label: "LinkedIn" },
               { href: "https://x.com/parvjainnn", icon: Twitter, label: "X" },

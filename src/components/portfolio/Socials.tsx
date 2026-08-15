@@ -80,12 +80,12 @@ export function Socials() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="mailto:hello@parvjain.dev"
+              href="mailto:jainparv.cse@gmail.com"
               data-cursor
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:translate-y-[-2px] transition-all"
             >
               <Mail size={18} />
-              hello@parvjain.dev
+              jainparv.cse@gmail.com
             </a>
             <a
               href="/resume.pdf"
