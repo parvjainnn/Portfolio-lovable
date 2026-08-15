@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram, Linkedin, Twitter, ArrowUpRight, Heart } from "lucide-react";
+import { Instagram, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
 
 const socials = [
   {
@@ -8,7 +8,6 @@ const socials = [
     blurb: "Behind-the-scenes, frames & stories.",
     href: "https://instagram.com/parvjainnn",
     icon: Instagram,
-    gradient: "from-fuchsia-500 via-rose-500 to-amber-400",
   },
   {
     name: "X / Twitter",
@@ -16,7 +15,6 @@ const socials = [
     blurb: "Thoughts, builds & the occasional rant.",
     href: "https://x.com/parvjainnn",
     icon: Twitter,
-    gradient: "from-zinc-200 via-zinc-400 to-zinc-600",
   },
   {
     name: "LinkedIn",
@@ -24,7 +22,6 @@ const socials = [
     blurb: "Career, collabs & professional notes.",
     href: "https://www.linkedin.com/in/parvjainnn",
     icon: Linkedin,
-    gradient: "from-sky-400 via-blue-500 to-indigo-600",
   },
 ];
 
@@ -40,11 +37,9 @@ export function SocialMedia() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-            <Heart size={12} /> 08 - Social
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-            Follow my <span className="text-gradient">journey</span>.
+          <p className="section-label mb-4">08 / Social</p>
+          <h2 className="text-3xl sm:text-4xl font-semibold">
+            Follow my journey.
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
             The personal side of things - frames, thoughts, and everyday creative chaos.
@@ -66,16 +61,13 @@ export function SocialMedia() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -6 }}
-                className="group relative glass rounded-3xl p-6 overflow-hidden transition-shadow hover:shadow-elegant"
+                whileHover={{ y: -3 }}
+                className="group relative rounded-lg border border-border p-6 transition-colors hover:bg-foreground/[0.03]"
               >
-                <div
-                  aria-hidden
-                  className={`absolute -top-16 -right-16 h-44 w-44 rounded-full blur-3xl opacity-50 bg-gradient-to-br ${s.gradient}`}
-                />
+                
                 <div className="relative flex items-start justify-between">
                   <div
-                    className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${s.gradient} flex items-center justify-center shadow-glow transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}
+                    className={"h-11 w-11 rounded-md border border-border text-foreground/80 flex items-center justify-center"}
                   >
                     <Icon size={24} className="text-white drop-shadow" />
                   </div>

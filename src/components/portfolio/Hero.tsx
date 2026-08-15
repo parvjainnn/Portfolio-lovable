@@ -1,6 +1,8 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { ArrowRight, Download, Github, Linkedin, Mail, Twitter, Instagram, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail, Twitter, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+import resumeUrl from "@/assets/resume.pdf?url";
 
 const Hero3D = lazy(() => import("./Hero3D").then((m) => ({ default: m.Hero3D })));
 
@@ -98,9 +100,9 @@ export function Hero() {
                 data-cursor
                 target="_blank"
                 rel="noreferrer noopener"
-                className="group relative inline-flex items-center gap-2 min-h-[44px] min-w-[44px] px-3 rounded-full glass text-muted-foreground hover:text-foreground hover:shadow-glow hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 min-h-[40px] px-3 rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-colors"
               >
-                <Icon size={20} />
+                <Icon size={16} />
                 <span className="text-xs font-mono">{label}</span>
               </a>
             ))}
@@ -111,12 +113,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-6 inline-flex flex-wrap items-center gap-2 px-4 py-2 rounded-full glass text-xs font-mono text-muted-foreground shadow-glow"
+            className="mt-8 inline-flex flex-wrap items-center gap-2 border-l-2 border-primary/60 pl-3 text-xs font-mono text-muted-foreground"
           >
-            <Sparkles size={12} className="text-primary" />
             <span>
               <span className="text-foreground/80">Currently building:</span>{" "}
-              <span className="text-gradient font-semibold">HealthTwin AI v2</span>
+              <span className="text-foreground">HealthTwin AI v2</span>
             </span>
             <span className="opacity-40">·</span>
             <span>Open to internship roles for Summer/Fall 2026</span>
@@ -124,12 +125,12 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
           className="relative h-[420px] sm:h-[500px] lg:h-[560px] order-first lg:order-last"
         >
-          <Suspense fallback={<div className="h-full w-full rounded-3xl glass animate-pulse" />}>
+          <Suspense fallback={<div className="h-full w-full rounded-lg border border-border" />}>
             <Hero3D />
           </Suspense>
         </motion.div>
