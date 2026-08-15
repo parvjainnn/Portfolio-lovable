@@ -9,68 +9,54 @@ const roles = ["Developer", "Designer", "Video Editor", "Creative Technologist"]
 function RoleCycler() {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setI((x) => (x + 1) % roles.length), 2200);
+    const t = setInterval(() => setI((x) => (x + 1) % roles.length), 2600);
     return () => clearInterval(t);
   }, []);
   return (
-    <div className="mt-5 font-mono text-sm text-muted-foreground flex items-center gap-2 h-6" aria-live="polite">
+    <div className="mt-6 font-mono text-sm text-muted-foreground flex items-center gap-2 h-6" aria-live="polite">
       <span className="text-primary">›</span>
       <AnimatePresence mode="wait">
         <motion.span
           key={roles[i]}
-          initial={{ opacity: 0, y: 6 }}
+          initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -6 }}
-          transition={{ duration: 0.35 }}
-          className="inline-block"
+          exit={{ opacity: 0, y: -4 }}
+          transition={{ duration: 0.3 }}
+          className="inline-block text-foreground/80"
         >
           {roles[i]}
         </motion.span>
       </AnimatePresence>
-      <span className="opacity-60">· {roles.filter((_, idx) => idx !== i).join(" · ")}</span>
+      <span className="opacity-50 hidden sm:inline">· {roles.filter((_, idx) => idx !== i).join(" · ")}</span>
     </div>
   );
 }
 
 export function Hero() {
-  const [scrollY, setScrollY] = useState(0);
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-      <motion.div
-        style={{ y: scrollY * 0.3 }}
-        className="absolute -top-20 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-primary/30 blur-[120px] pointer-events-none"
-      />
-      <motion.div
-        style={{ y: scrollY * -0.15 }}
-        className="absolute bottom-10 right-10 h-[300px] w-[300px] rounded-full bg-accent/30 blur-[100px] pointer-events-none"
-      />
+      <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none [mask-image:linear-gradient(180deg,black,transparent_75%)]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 w-full grid lg:grid-cols-2 gap-10 items-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 w-full grid lg:grid-cols-2 gap-12 items-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
         >
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 - Home</p>
-
-          <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs font-mono text-muted-foreground mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-glow" />
-            Available for opportunities
+          <div className="flex items-center gap-3 mb-5">
+            <span className="section-label">01 / Home</span>
+            <span className="h-px w-10 bg-border" />
+            <span className="font-mono text-[11px] text-muted-foreground inline-flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-glow" />
+              Available for opportunities
+            </span>
           </div>
 
-          <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-black leading-[0.95] tracking-[-0.04em]">
-            <span className="text-gradient">Parv Jain</span>
-            <span className="text-foreground">.</span>
+          <h1 className="font-display text-6xl sm:text-7xl lg:text-8xl font-semibold leading-[0.94] tracking-[-0.035em]">
+            Parv Jain<span className="text-primary">.</span>
           </h1>
 
-          <p className="mt-7 text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
+          <p className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed">
             I build software that works and visuals that land - Java, AI, and cinematic creative
             work. Engineering student. Open to internships and freelance.
           </p>
@@ -78,23 +64,24 @@ export function Hero() {
           <RoleCycler />
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a href="#projects" data-cursor className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:translate-y-[-2px] transition-all">
+            <a href="#projects" data-cursor className="group inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition">
               See what I've built
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
             <a
-              href="/resume.pdf"
+              href={resumeUrl}
               download
               data-cursor
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download Parv Jain's resume PDF"
-              className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 font-medium hover:bg-foreground/5 hover:shadow-glow transition"
+              className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground/85 hover:text-foreground hover:bg-foreground/5 transition"
             >
-              <Download size={18} />
-              Resume (Updated 2026) ↓
+              <Download size={16} />
+              Resume (PDF)
             </a>
           </div>
+
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
             {[
