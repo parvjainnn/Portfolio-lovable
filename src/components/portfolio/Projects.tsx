@@ -177,8 +177,8 @@ export function Projects() {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">05 - Projects</p>
-            <h2 className="text-4xl sm:text-5xl font-bold">Selected work.</h2>
+            <p className="section-label mb-4">05 / Projects</p>
+            <h2 className="text-3xl sm:text-4xl font-semibold">Selected work.</h2>
           </motion.div>
           <p className="text-muted-foreground max-w-md">
             A few things I've built recently - click any card to dive into the case study.
@@ -198,9 +198,9 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-3xl"
+              className="text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
             >
-              <TiltCard className="glass rounded-3xl overflow-hidden shadow-card h-full flex flex-col group relative">
+              <TiltCard className="glass rounded-lg overflow-hidden shadow-card h-full flex flex-col group relative">
                 {/* Quick links */}
                 <div className="absolute top-3 right-3 z-10 flex items-center gap-2">
                   <a
@@ -209,7 +209,7 @@ export function Projects() {
                     rel="noreferrer noopener"
                     onClick={(e) => e.stopPropagation()}
                     aria-label={`${p.title} on GitHub`}
-                    className="h-9 w-9 rounded-full glass flex items-center justify-center text-foreground/80 hover:text-foreground hover:shadow-glow transition"
+                    className="h-9 w-9 rounded-full glass flex items-center justify-center text-foreground/80 hover:text-foreground  transition"
                   >
                     <Github size={15} />
                   </a>
@@ -220,7 +220,7 @@ export function Projects() {
                     onClick={(e) => { if (!p.demo) e.preventDefault(); e.stopPropagation(); }}
                     aria-label={p.demo ? `${p.title} live demo` : "No live demo yet"}
                     title={p.demo ? "Live demo" : "No live demo yet"}
-                    className={`h-9 w-9 rounded-full glass flex items-center justify-center text-foreground/80 hover:text-foreground hover:shadow-glow transition ${!p.demo ? "opacity-60" : ""}`}
+                    className={`h-9 w-9 rounded-full glass flex items-center justify-center text-foreground/80 hover:text-foreground  transition ${!p.demo ? "opacity-60" : ""}`}
                   >
                     <ExternalLink size={15} />
                   </a>
@@ -278,7 +278,7 @@ export function Projects() {
               exit={{ y: 20, opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl glass rounded-3xl overflow-hidden my-4 sm:my-8 shadow-elegant"
+              className="relative w-full max-w-5xl glass rounded-lg overflow-hidden my-4 sm:my-8 shadow-elegant"
             >
               {/* Top controls */}
               <div className="absolute top-3 right-3 z-20 flex items-center gap-2">
@@ -421,7 +421,7 @@ export function Projects() {
                         href={active.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-5 py-2.5 text-sm font-medium shadow-glow hover:opacity-95 hover:-translate-y-0.5 transition-all"
+                        className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-95 hover:-translate-y-0.5 transition-all"
                       >
                         <Github size={15} /> View on GitHub
                       </a>

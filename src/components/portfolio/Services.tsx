@@ -63,10 +63,10 @@ export function Services() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Sparkles size={12} /> 06 - Professional Services
+            <p className="section-label mb-4 inline-flex items-center gap-2">
+              <Sparkles size={12} /> 06 / Professional Services
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
               Beyond code - a creative practice.
             </h2>
           </motion.div>
@@ -84,14 +84,14 @@ export function Services() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <TiltCard className="glass rounded-3xl p-6 sm:p-7 shadow-card h-full flex flex-col overflow-hidden relative">
+              <TiltCard className="glass rounded-lg p-6 sm:p-7 shadow-card h-full flex flex-col overflow-hidden relative">
                 <div
                   aria-hidden
                   className={`absolute -top-24 -right-24 h-56 w-56 rounded-full blur-3xl opacity-60 bg-gradient-to-br ${s.accent}`}
                 />
 
                 <div className="flex items-center justify-between mb-6 relative">
-                  <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${s.iconRing} text-primary-foreground flex items-center justify-center shadow-glow`}>
+                  <div className={`h-12 w-12 rounded-lg bg-gradient-to-br ${s.iconRing} text-primary-foreground flex items-center justify-center`}>
                     <Icon size={22} />
                   </div>
                   <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground border border-border rounded-full px-3 py-1">
@@ -103,7 +103,7 @@ export function Services() {
                 <p className="text-sm text-muted-foreground relative">{s.description}</p>
 
                 {s.title === "Video Editing" && (
-                  <div className="mt-5 relative aspect-video rounded-2xl overflow-hidden border border-dashed border-border bg-background/60 flex flex-col items-center justify-center text-muted-foreground">
+                  <div className="mt-5 relative aspect-video rounded-lg overflow-hidden border border-dashed border-border bg-background/60 flex flex-col items-center justify-center text-muted-foreground">
                     <Play size={24} className="text-primary mb-2" />
                     <p className="text-sm font-mono">Reel dropping soon</p>
                   </div>
@@ -127,7 +127,7 @@ export function Services() {
                       data-cursor
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
+                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90  transition-all"
                     >
                       {s.cta.label}
                       <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -136,7 +136,7 @@ export function Services() {
                     <Link
                       to={s.cta.href}
                       data-cursor
-                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90 hover:shadow-glow transition-all"
+                      className="group/btn inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90  transition-all"
                     >
                       {s.cta.label}
                       <ArrowUpRight size={14} className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />

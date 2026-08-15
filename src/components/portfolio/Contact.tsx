@@ -16,7 +16,7 @@ export function Contact() {
           <div className="absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-accent/40 blur-[100px]" />
 
           <div className="relative">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">04 - Contact</p>
+            <p className="section-label mb-4">04 / Contact</p>
             <h2 className="text-4xl sm:text-6xl font-bold leading-tight">
               Let's build <span className="text-gradient">something</span> together.
             </h2>
@@ -26,7 +26,7 @@ export function Contact() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
-              <a href="mailto:example@email.com" data-cursor className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground px-6 py-3 font-medium shadow-glow hover:-translate-y-0.5 transition">
+              <a href="mailto:example@email.com" data-cursor className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:-translate-y-0.5 transition">
                 <Mail size={18} /> example@email.com
                 <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
               </a>

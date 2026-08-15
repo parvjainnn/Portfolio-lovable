@@ -35,7 +35,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <nav className="flex items-center justify-between py-3">
           <a href="#home" className="flex items-center gap-2 font-display font-bold text-lg" data-cursor>
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-gradient-primary shadow-glow animate-glow" />
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-gradient-primary animate-glow" />
             <span className="tracking-tight">parv<span className="text-gradient">.</span></span>
           </a>
 
@@ -50,7 +50,7 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <a href="#contact" data-cursor className="hidden sm:inline-flex items-center rounded-full bg-gradient-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition shadow-glow">
+            <a href="#contact" data-cursor className="hidden sm:inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition">
               Hire me
             </a>
             <button aria-label="Menu" onClick={() => setOpen((o) => !o)} className="lg:hidden p-2 rounded-lg hover:bg-foreground/5">
@@ -65,7 +65,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              className="lg:hidden mt-2 glass rounded-2xl p-4"
+              className="lg:hidden mt-2 glass rounded-lg p-4"
             >
               <ul className="flex flex-col gap-1">
                 {links.map((l) => (

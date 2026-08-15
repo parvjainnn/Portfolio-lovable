@@ -57,10 +57,10 @@ export function CodingProfiles() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3 inline-flex items-center gap-2">
-              <Terminal size={12} /> 07 - Coding Profiles
+            <p className="section-label mb-4 inline-flex items-center gap-2">
+              <Terminal size={12} /> 07 / Coding Profiles
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
               Where the <span className="text-gradient">commits</span> live.
             </h2>
           </motion.div>
@@ -85,13 +85,13 @@ export function CodingProfiles() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="group relative rounded-3xl overflow-hidden glass shadow-card hover:shadow-elegant transition-shadow"
+                className="group relative rounded-lg overflow-hidden glass shadow-card hover:shadow-elegant transition-shadow"
                 style={{ ['--accent-glow' as string]: p.accent }}
               >
                 {/* glowing border on hover */}
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     boxShadow: `inset 0 0 0 1px ${p.accent}66, 0 0 40px -8px ${p.accent}55`,
                   }}
