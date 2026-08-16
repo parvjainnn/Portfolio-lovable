@@ -36,8 +36,9 @@ export function Navbar() {
         <nav className="flex items-center justify-between py-3">
           <a href="#home" className="flex items-center gap-2 font-display font-bold text-lg" data-cursor>
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-gradient-primary animate-glow" />
-            <span className="tracking-tight">parv<span className="text-gradient">.</span></span>
+            <span className="tracking-tight">portfolio<span className="text-gradient">.</span></span>
           </a>
+
 
           <ul className="hidden lg:flex items-center gap-0.5">
             {links.map((l) => (

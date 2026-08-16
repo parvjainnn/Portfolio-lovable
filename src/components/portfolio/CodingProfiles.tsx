@@ -1,174 +1,219 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Code2, ArrowUpRight, Terminal, GitCommitHorizontal } from "lucide-react";
+import { Github, Code2, ArrowUpRight, Terminal } from "lucide-react";
 
-const profiles = [
-  {
-    name: "GitHub",
-    handle: "@parvjainnn",
-    href: "https://github.com/parvjainnn",
-    icon: Github,
-    accent: "#E6E1D7",
-    stats: [
-      { label: "Repositories", value: "12+" },
-      { label: "Contributions", value: "200+" },
-      { label: "Open Source", value: "12+ repos" },
-    ],
-    tag: "git remote",
-    command: "git clone parv-jain.dev",
-  },
-  {
-    name: "LeetCode",
-    handle: "u/parvjainnn",
-    href: "https://leetcode.com/u/parvjainnn",
-    icon: Code2,
-    accent: "#D99A4E",
-    stats: [
-      { label: "Problems", value: "300+" },
-      { label: "Topics", value: "DSA" },
-      { label: "Streak", value: "Active" },
-    ],
-    tag: "dsa.runner",
-    command: "leetcode submit --lang java",
-  },
-];
+import {
+  getGithubProfile,
+  getLeetcodeProfile,
+  type GithubProfile,
+  type LeetcodeProfile,
+} from "@/lib/profiles.functions";
+
+type State<T> = { data: T | null; loading: boolean; error: boolean };
+
+function useProfile<T>(fn: () => Promise<T>) {
+  const [state, setState] = useState<State<T>>({ data: null, loading: true, error: false });
+  useEffect(() => {
+    let active = true;
+    fn()
+      .then((data) => active && setState({ data, loading: false, error: false }))
+      .catch(() => active && setState({ data: null, loading: false, error: true }));
+    return () => {
+      active = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return state;
+}
+
+function Metric({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-background px-3 py-2.5">
+      <div className="font-display text-lg font-semibold tabular-nums text-foreground">{value}</div>
+      <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function CardShell({
+  name,
+  handle,
+  href,
+  icon: Icon,
+  children,
+  footer,
+}: {
+  name: string;
+  handle: string;
+  href: string;
+  icon: typeof Github;
+  children: React.ReactNode;
+  footer?: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.45 }}
+      className="rounded-md border border-border bg-background/60"
+    >
+      <div className="flex items-center gap-3 border-b border-border px-4 py-3">
+        <Icon size={17} className="text-foreground/80" />
+        <div className="min-w-0">
+          <div className="text-sm font-medium leading-none">{name}</div>
+          <div className="mt-1 font-mono text-[11px] text-muted-foreground">{handle}</div>
+        </div>
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+          data-cursor
+          aria-label={`${name} profile`}
+          className="ml-auto inline-flex items-center gap-1 font-mono text-[11px] text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Visit
+          <ArrowUpRight size={13} />
+        </a>
+      </div>
+      <div className="p-4">{children}</div>
+      {footer ? <div className="border-t border-border px-4 py-3">{footer}</div> : null}
+    </motion.div>
+  );
+}
+
+function Placeholder({ error, href }: { error: boolean; href: string }) {
+  return (
+    <p className="font-mono text-xs text-muted-foreground">
+      {error ? (
+        <>
+          Stats unavailable right now -{" "}
+          <a href={href} target="_blank" rel="noreferrer noopener" className="underline">
+            view profile
+          </a>
+          .
+        </>
+      ) : (
+        "Loading..."
+      )}
+    </p>
+  );
+}
+
+function GithubCard() {
+  const { data, loading, error } = useProfile<GithubProfile>(() => getGithubProfile());
+  return (
+    <CardShell
+      name="GitHub"
+      handle="@parvjainnn"
+      href="https://github.com/parvjainnn"
+      icon={Github}
+      footer={
+        data?.repos.length ? (
+          <ul className="space-y-1.5">
+            {data.repos.map((r) => (
+              <li key={r.name} className="flex items-center gap-2 text-xs">
+                <a
+                  href={r.url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="truncate font-mono text-foreground/85 transition-colors hover:text-foreground"
+                >
+                  {r.name}
+                </a>
+                {r.language ? (
+                  <span className="ml-auto shrink-0 font-mono text-[10px] text-muted-foreground">
+                    {r.language}
+                  </span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        ) : null
+      }
+    >
+      {loading || error || !data ? (
+        <Placeholder error={error} href="https://github.com/parvjainnn" />
+      ) : (
+        <>
+          {data.bio ? (
+            <p className="mb-4 text-xs leading-relaxed text-muted-foreground">{data.bio}</p>
+          ) : null}
+          <div className="grid grid-cols-3 gap-px overflow-hidden rounded-md border border-border bg-border">
+            <Metric label="Repos" value={String(data.publicRepos)} />
+            <Metric label="Followers" value={String(data.followers)} />
+            <Metric label="Following" value={String(data.following)} />
+          </div>
+        </>
+      )}
+    </CardShell>
+  );
+}
+
+function LeetcodeCard() {
+  const { data, loading, error } = useProfile<LeetcodeProfile>(() => getLeetcodeProfile());
+  return (
+    <CardShell
+      name="LeetCode"
+      handle="u/parvjainnn"
+      href="https://leetcode.com/u/parvjainnn/"
+      icon={Code2}
+      footer={
+        data ? (
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[11px] text-muted-foreground">
+            <span>Easy {data.easy}</span>
+            <span>Medium {data.medium}</span>
+            <span>Hard {data.hard}</span>
+            {data.languages.length ? (
+              <span className="ml-auto text-foreground/80">
+                {data.languages.map((l) => l.name).join(", ")}
+              </span>
+            ) : null}
+          </div>
+        ) : null
+      }
+    >
+      {loading || error || !data ? (
+        <Placeholder error={error} href="https://leetcode.com/u/parvjainnn/" />
+      ) : (
+        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-md border border-border bg-border">
+          <Metric label="Solved" value={String(data.solved)} />
+          <Metric
+            label="Global rank"
+            value={data.ranking ? data.ranking.toLocaleString("en-US") : "-"}
+          />
+          <Metric
+            label="Contest rating"
+            value={data.contestRating ? String(Math.round(data.contestRating)) : "-"}
+          />
+        </div>
+      )}
+    </CardShell>
+  );
+}
 
 export function CodingProfiles() {
   return (
-    <section id="coding" className="relative py-24 sm:py-32">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      {/* faint code-grid backdrop */}
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-          maskImage: "radial-gradient(ellipse at center, black, transparent 75%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl"
-          >
-            <p className="section-label mb-4 inline-flex items-center gap-2">
+    <section id="coding" className="relative py-20 sm:py-28">
+      <div className="absolute inset-x-0 top-0 h-px bg-border" />
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="section-label mb-3 inline-flex items-center gap-2">
               <Terminal size={12} /> 07 / Coding Profiles
             </p>
-            <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
-              Where the <span className="text-gradient">commits</span> live.
+            <h2 className="text-2xl font-semibold leading-tight sm:text-3xl">
+              Where the commits live.
             </h2>
-          </motion.div>
-          <p className="text-muted-foreground max-w-md font-mono text-sm">
-            <span className="text-primary">$</span> open ~/profiles --view=public
-          </p>
+          </div>
+          <p className="font-mono text-xs text-muted-foreground">Live from public profiles</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {profiles.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <motion.a
-                key={p.name}
-                href={p.href}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={`${p.name} profile`}
-                data-cursor
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                whileHover={{ y: -4 }}
-                className="group relative rounded-lg overflow-hidden glass shadow-card hover:shadow-elegant transition-shadow"
-                style={{ ['--accent-glow' as string]: p.accent }}
-              >
-                {/* glowing border on hover */}
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    boxShadow: `inset 0 0 0 1px ${p.accent}66, 0 0 40px -8px ${p.accent}55`,
-                  }}
-                />
-
-                {/* terminal header */}
-                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-foreground/[0.03]">
-                  <span className="h-2.5 w-2.5 rounded-full bg-rose-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-amber-300/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-                  <span className="ml-2 text-[10px] font-mono text-muted-foreground truncate">
-                    ~/{p.tag}
-                  </span>
-                  <ArrowUpRight
-                    size={14}
-                    className="ml-auto text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-5">
-                    <div
-                      className="h-12 w-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
-                      style={{
-                        background: `${p.accent}14`,
-                        boxShadow: `inset 0 0 0 1px ${p.accent}33`,
-                      }}
-                    >
-                      <Icon size={22} style={{ color: p.accent }} />
-                    </div>
-                    <div>
-                      <div className="font-display font-semibold leading-none">{p.name}</div>
-                      <div className="mt-1.5 text-[11px] font-mono text-muted-foreground">{p.handle}</div>
-                    </div>
-                  </div>
-
-                  {/* command line */}
-                  <div className="font-mono text-[11px] text-muted-foreground bg-foreground/[0.04] border border-border rounded-lg px-3 py-2 mb-5 overflow-hidden">
-                    <span className="text-primary">$</span>{" "}
-                    <span className="text-foreground/90">{p.command}</span>
-                  </div>
-
-                  {/* stats */}
-                  <div className="grid grid-cols-3 gap-2 mb-6">
-                    {p.stats.map((s) => (
-                      <div
-                        key={s.label}
-                        className="rounded-xl border border-border bg-foreground/[0.02] px-2.5 py-2 text-center"
-                      >
-                        <div className="text-sm font-display font-bold text-foreground">{s.value}</div>
-                        <div className="mt-0.5 text-[9px] font-mono uppercase tracking-wider text-muted-foreground">
-                          {s.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <span
-                      className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-md font-medium transition-all"
-                      style={{
-                        background: p.accent,
-                        color: "#141416",
-                      }}
-                    >
-                      Visit
-                      <ArrowUpRight size={12} />
-                    </span>
-                    <GitCommitHorizontal
-                      size={16}
-                      className="text-muted-foreground group-hover:text-foreground transition"
-                    />
-                  </div>
-                </div>
-              </motion.a>
-            );
-          })}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <GithubCard />
+          <LeetcodeCard />
         </div>
       </div>
     </section>
