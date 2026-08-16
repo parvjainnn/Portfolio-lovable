@@ -9,10 +9,8 @@ const lines = [
 ];
 
 const stats = [
-  { k: "300+", v: "DSA problems solved" },
   { k: "Java", v: "Primary language" },
   { k: "10+", v: "Repositories shipped" },
-  { k: "Top 20%", v: "LeetCode ranking" },
 ];
 
 export function Developer() {
@@ -89,7 +87,7 @@ export function Developer() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08, duration: 0.5 }}
-                  className="glass rounded-lg p-4 shadow-card"
+                  className="glass rounded-lg p-4 shadow-card border border-border"
                 >
                   <div className="text-3xl font-display font-semibold text-foreground">{s.k}</div>
                   <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
@@ -103,9 +101,9 @@ export function Developer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 data-cursor
-                className="group glass rounded-lg p-4 flex items-center gap-3  transition"
+                className="group rounded-lg border border-border bg-background/60 p-4 flex items-center gap-3 transition hover:bg-foreground/[0.03]"
               >
-                <div className="h-10 w-10 rounded-xl bg-foreground/5 flex items-center justify-center">
+                <div className="h-10 w-10 rounded-xl bg-foreground/5 flex items-center justify-center border border-border">
                   <Github size={18} />
                 </div>
                 <div className="flex-1">
@@ -119,9 +117,9 @@ export function Developer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 data-cursor
-                className="group glass rounded-lg p-4 flex items-center gap-3  transition"
+                className="group rounded-lg border border-border bg-background/60 p-4 flex items-center gap-3 transition hover:bg-foreground/[0.03]"
               >
-                <div className="h-10 w-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center">
+                <div className="h-10 w-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center border border-border/60">
                   <Code2 size={18} />
                 </div>
                 <div className="flex-1">
