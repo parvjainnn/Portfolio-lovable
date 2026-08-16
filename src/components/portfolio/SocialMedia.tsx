@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Github, Code2, ArrowUpRight } from "lucide-react";
 
 const socials = [
   {
