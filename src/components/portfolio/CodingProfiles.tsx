@@ -178,12 +178,8 @@ function LeetcodeCard() {
       {loading || error || !data ? (
         <Placeholder error={error} href="https://leetcode.com/u/parvjainnn/" />
       ) : (
-        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-md border border-border bg-border">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border">
           <Metric label="Solved" value={String(data.solved)} />
-          <Metric
-            label="Global rank"
-            value={data.ranking ? data.ranking.toLocaleString("en-US") : "-"}
-          />
           <Metric
             label="Contest rating"
             value={data.contestRating ? String(Math.round(data.contestRating)) : "-"}
