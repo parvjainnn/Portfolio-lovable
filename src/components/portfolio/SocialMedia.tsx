@@ -3,6 +3,20 @@ import { Instagram, Linkedin, Twitter, Github, Code2, ArrowUpRight } from "lucid
 
 const socials = [
   {
+    name: "GitHub",
+    handle: "@parvjainnn",
+    blurb: "Code, commits, and shipped repositories.",
+    href: "https://github.com/parvjainnn",
+    icon: Github,
+  },
+  {
+    name: "LeetCode",
+    handle: "u/parvjainnn",
+    blurb: "DSA practice, problem solving, and contests.",
+    href: "https://leetcode.com/u/parvjainnn",
+    icon: Code2,
+  },
+  {
     name: "Instagram",
     handle: "@parvjainnn",
     blurb: "Behind-the-scenes, frames & stories.",
