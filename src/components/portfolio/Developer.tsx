@@ -35,7 +35,7 @@ export function Developer() {
             </h2>
           </motion.div>
           <p className="text-muted-foreground max-w-md">
-            Java-first thinker. DSA grinder. Building data and AI projects with pragmatism over hype.
+            Python-first thinker. DSA grinder. Building data and AI projects with pragmatism over hype.
           </p>
         </div>
 
