@@ -94,18 +94,8 @@ export function Hero() {
               ))}
             </div>
           </div>
+          </div>
 
-          {/* compact technical metadata */}
-          <dl className="grid w-full max-w-xs grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border text-sm md:w-56">
-            {meta.map((m) => (
-              <div key={m.k} className="bg-background px-4 py-3">
-                <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                  {m.k}
-                </dt>
-                <dd className="mt-1 text-[13px] text-foreground/90">{m.v}</dd>
-              </div>
-            ))}
-          </dl>
         </motion.div>
       </div>
     </section>
