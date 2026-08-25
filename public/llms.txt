@@ -1,0 +1,10 @@
+# Parv Jain
+
+> Portfolio of Parv Jain - engineering student, developer and creative technologist working across Python, data analysis, machine learning and web development, plus graphics, photo and video work.
+
+## Pages
+
+- [Home](/): About, skills, developer profile, projects (Airbnb data analysis, plant disease detection, HealthTwin AI), services, coding profiles and contact.
+- [Graphics Design](/graphics): Graphic design case studies, process and tools.
+- [Video Editing](/video): Video editing and motion work case studies.
+- [Photo Editing](/photo): Photo retouching and editing case studies.

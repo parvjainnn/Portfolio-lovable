@@ -31,8 +31,12 @@ export function Hero() {
             <p className="section-label">01 / Home</p>
 
             <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
-              Parv Jain<span className="text-primary">.</span>
+              Parv Jain<span className="text-primary">.</span>{" "}
+              <span className="block text-2xl font-medium text-muted-foreground sm:text-3xl">
+                Developer, data & design
+              </span>
             </h1>
+
 
             <p className="mt-3 font-mono text-[13px] text-muted-foreground">
               {focus.join("  ·  ")}
