@@ -154,6 +154,13 @@ function GithubCard() {
 
 function LeetcodeCard() {
   const { data, loading, error } = useProfile<LeetcodeProfile>(() => getLeetcodeProfile());
+  const breakdown = data
+    ? [
+        { label: "Easy", value: data.easy },
+        { label: "Medium", value: data.medium },
+        { label: "Hard", value: data.hard },
+      ]
+    : [];
   return (
     <CardShell
       name="LeetCode"
@@ -162,37 +169,52 @@ function LeetcodeCard() {
       icon={Code2}
       footer={
         data ? (
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[11px] text-muted-foreground">
-            <span>Easy {data.easy}</span>
-            <span>Medium {data.medium}</span>
-            <span>Hard {data.hard}</span>
+          <ul className="space-y-1.5">
+            {breakdown.map((b) => (
+              <li key={b.label} className="flex items-center gap-2 text-xs">
+                <span className="font-mono text-foreground/85">{b.label}</span>
+                <span className="ml-auto shrink-0 font-mono text-[10px] tabular-nums text-muted-foreground">
+                  {b.value} solved
+                </span>
+              </li>
+            ))}
             {data.languages.length ? (
-              <span className="ml-auto text-foreground/80">
-                {data.languages.map((l) => l.name).join(", ")}
-              </span>
+              <li className="flex items-center gap-2 pt-1 text-xs">
+                <span className="font-mono text-foreground/85">Languages</span>
+                <span className="ml-auto min-w-0 truncate font-mono text-[10px] text-muted-foreground">
+                  {data.languages.map((l) => l.name).join(", ")}
+                </span>
+              </li>
             ) : null}
-          </div>
+          </ul>
         ) : null
       }
     >
       {loading || error || !data ? (
         <Placeholder error={error} href="https://leetcode.com/u/parvjainnn/" />
       ) : (
-        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-md border border-border bg-border">
-          <Metric label="Solved" value={String(data.solved)} />
-          <Metric
-            label="Global rank"
-            value={data.ranking ? data.ranking.toLocaleString("en-US") : "-"}
-          />
-          <Metric
-            label="Contest rating"
-            value={data.contestRating ? String(Math.round(data.contestRating)) : "-"}
-          />
-        </div>
+        <>
+          <p className="mb-4 text-xs leading-relaxed text-muted-foreground">
+            {data.solved} problems solved across easy, medium and hard sets - consistent DSA practice
+            in {data.languages[0]?.name ?? "Python"} alongside contest participation.
+          </p>
+          <div className="grid grid-cols-3 gap-px overflow-hidden rounded-md border border-border bg-border">
+            <Metric label="Solved" value={String(data.solved)} />
+            <Metric
+              label="Global rank"
+              value={data.ranking ? data.ranking.toLocaleString("en-US") : "-"}
+            />
+            <Metric
+              label="Contest rating"
+              value={data.contestRating ? String(Math.round(data.contestRating)) : "-"}
+            />
+          </div>
+        </>
       )}
     </CardShell>
   );
 }
+
 
 export function CodingProfiles() {
   return (
