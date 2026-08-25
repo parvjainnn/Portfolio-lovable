@@ -58,7 +58,7 @@ function CardShell({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.45 }}
-      className="rounded-md border border-border bg-background/60"
+      className="flex h-full flex-col rounded-md border border-border bg-background/60"
     >
       <div className="flex items-center gap-3 border-b border-border px-4 py-3">
         <Icon size={17} className="text-foreground/80" />
@@ -78,7 +78,7 @@ function CardShell({
           <ArrowUpRight size={13} />
         </a>
       </div>
-      <div className="p-4">{children}</div>
+      <div className="flex-1 p-4">{children}</div>
       {footer ? <div className="border-t border-border px-4 py-3">{footer}</div> : null}
     </motion.div>
   );
