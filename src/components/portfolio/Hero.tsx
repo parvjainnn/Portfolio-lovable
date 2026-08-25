@@ -25,7 +25,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-          className="grid gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center"
+          className="flex flex-col"
         >
           <div className="max-w-2xl">
             <p className="section-label">01 / Home</p>
