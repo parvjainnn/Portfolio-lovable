@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GraphicsRouteImport } from './routes/graphics'
 import { Route as PhotoRouteImport } from './routes/photo'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as VideoRouteImport } from './routes/video'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const PhotoRoute = PhotoRouteImport.update({
   path: '/photo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VideoRoute = VideoRouteImport.update({
   id: '/video',
   path: '/video',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/graphics': typeof GraphicsRoute
   '/photo': typeof PhotoRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video': typeof VideoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/graphics': typeof GraphicsRoute
   '/photo': typeof PhotoRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video': typeof VideoRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/graphics': typeof GraphicsRoute
   '/photo': typeof PhotoRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video': typeof VideoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/graphics' | '/photo' | '/video'
+  fullPaths: '/' | '/graphics' | '/photo' | '/sitemap.xml' | '/video'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/graphics' | '/photo' | '/video'
-  id: '__root__' | '/' | '/graphics' | '/photo' | '/video'
+  to: '/' | '/graphics' | '/photo' | '/sitemap.xml' | '/video'
+  id: '__root__' | '/' | '/graphics' | '/photo' | '/sitemap.xml' | '/video'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GraphicsRoute: typeof GraphicsRoute
   PhotoRoute: typeof PhotoRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VideoRoute: typeof VideoRoute
 }
 
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PhotoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/video': {
       id: '/video'
       path: '/video'
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GraphicsRoute: GraphicsRoute,
   PhotoRoute: PhotoRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   VideoRoute: VideoRoute,
 }
 export const routeTree = rootRouteImport
