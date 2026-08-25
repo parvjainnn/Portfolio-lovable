@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://parvjainnn.lovable.app/sitemap.xml

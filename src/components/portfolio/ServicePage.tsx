@@ -104,8 +104,10 @@ export function ServicePage(p: ServicePageProps) {
       </section>
 
       {/* FILTER + SEARCH */}
-      <section className="relative">
+      <section className="relative" aria-labelledby="browse-heading">
+        <h2 id="browse-heading" className="sr-only">Browse and filter work</h2>
         <div className="mx-auto max-w-6xl px-4 sm:px-6 flex flex-wrap gap-3 items-center justify-between">
+
           <div className="flex flex-wrap gap-2">
             {["All", ...p.categories].map((c) => (
               <button
@@ -144,8 +146,10 @@ export function ServicePage(p: ServicePageProps) {
       {/* PROJECTS GRID */}
       <section className="relative py-12">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="section-label mb-4">Work</p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 max-w-2xl">Selected projects.</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence mode="popLayout">
+
               {filtered.map((proj, i) => (
                 <motion.button
                   key={proj.id}
