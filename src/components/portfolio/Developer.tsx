@@ -3,17 +3,16 @@ import { Github, Code2, ExternalLink, Terminal } from "lucide-react";
 
 const lines = [
   { p: "$", c: "whoami", out: "parv-jain - engineer · creative · builder" },
-  { p: "$", c: "cat stack.json", out: '{ "lang": ["Java","Python","C++"], "web": ["React","TS"], "focus": "DSA · Analytics · AI" }' },
+  { p: "$", c: "cat stack.json", out: '{ "lang": ["Python","SQL","Java"], "web": ["React","TS"], "focus": "DSA · Analytics · AI" }' },
   { p: "$", c: "ls ./now", out: "leetcode-grind/  airbnb-analysis/  plant-disease/  healthtwin-ai/" },
   { p: "$", c: "echo $MISSION", out: "Ship clean, fast, human software." },
 ];
 
 const stats = [
-  { k: "300+", v: "DSA problems solved" },
-  { k: "Java", v: "Primary language" },
+  { k: "Python", v: "Primary language" },
   { k: "10+", v: "Repositories shipped" },
-  { k: "Top 20%", v: "LeetCode ranking" },
 ];
+
 
 export function Developer() {
   return (
