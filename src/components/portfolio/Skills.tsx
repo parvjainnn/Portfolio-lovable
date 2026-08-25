@@ -5,7 +5,7 @@ const groups = [
   {
     icon: Code2,
     title: "Engineering",
-    items: ["Java (Primary)", "Python", "C++", "DSA", "React", "TypeScript", "HTML/CSS"],
+    items: ["Python (Primary)", "SQL", "Java", "C++", "DSA", "React", "TypeScript", "HTML/CSS"],
   },
   {
     icon: Palette,

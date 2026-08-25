@@ -5,12 +5,6 @@ import { url as resumeUrl } from "@/assets/resume.pdf.asset.json";
 
 const focus = ["Data Analysis", "Machine Learning", "Software Engineering"];
 
-const meta = [
-  { k: "Focus", v: "Data / ML / Software" },
-  { k: "Stack", v: "Python · SQL · Java · React" },
-  { k: "Tools", v: "Power BI · Flask · Pandas" },
-  { k: "Location", v: "India · Remote friendly" },
-];
 
 const socials = [
   { href: "mailto:jainparv.cse@gmail.com", icon: Mail, label: "Email" },
@@ -31,7 +25,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-          className="grid gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center"
+          className="flex flex-col"
         >
           <div className="max-w-2xl">
             <p className="section-label">01 / Home</p>
@@ -100,18 +94,6 @@ export function Hero() {
               ))}
             </div>
           </div>
-
-          {/* compact technical metadata */}
-          <dl className="grid w-full max-w-xs grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border text-sm md:w-56">
-            {meta.map((m) => (
-              <div key={m.k} className="bg-background px-4 py-3">
-                <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                  {m.k}
-                </dt>
-                <dd className="mt-1 text-[13px] text-foreground/90">{m.v}</dd>
-              </div>
-            ))}
-          </dl>
         </motion.div>
       </div>
     </section>
