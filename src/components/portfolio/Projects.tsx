@@ -198,7 +198,7 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+              className="h-full text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
             >
               <TiltCard className="glass rounded-lg overflow-hidden shadow-card h-full flex flex-col group relative">
                 {/* Quick links */}

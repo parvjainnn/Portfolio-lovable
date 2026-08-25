@@ -5,12 +5,6 @@ import { url as resumeUrl } from "@/assets/resume.pdf.asset.json";
 
 const focus = ["Data Analysis", "Machine Learning", "Software Engineering"];
 
-const meta = [
-  { k: "Focus", v: "Data / ML / Software" },
-  { k: "Stack", v: "Python · SQL · Java · React" },
-  { k: "Tools", v: "Power BI · Flask · Pandas" },
-  { k: "Location", v: "India · Remote friendly" },
-];
 
 const socials = [
   { href: "mailto:jainparv.cse@gmail.com", icon: Mail, label: "Email" },
