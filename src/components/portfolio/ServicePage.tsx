@@ -190,7 +190,6 @@ export function ServicePage(p: ServicePageProps) {
                   </div>
                 </motion.button>
               ))}
-            </AnimatePresence>
           </div>
           {filtered.length === 0 && (
             <p className="text-center text-muted-foreground py-16">No projects match your search.</p>
