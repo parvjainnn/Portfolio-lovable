@@ -27,7 +27,7 @@ export function Hero() {
           transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
           className="flex flex-col items-center"
         >
-          <div className="max-w-3xl text-center">
+          <div className="w-full max-w-3xl text-center">
             <p className="section-label">01 / Home</p>
 
             <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
