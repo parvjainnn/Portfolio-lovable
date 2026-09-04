@@ -48,7 +48,7 @@ export function Hero() {
               graphics and video work when a project needs it.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="#projects"
                 data-cursor
@@ -81,7 +81,7 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-border pt-5">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 border-t border-border pt-5">
               {socials.map(({ href, icon: Icon, label }) => (
                 <a
                   key={label}
