@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92vh] items-center pt-28 pb-16 sm:pt-32"
+      className="relative flex min-h-[92vh] flex-col items-center justify-center pt-28 pb-16 sm:pt-32"
     >
       <div className="relative mx-auto w-full max-w-5xl px-4 sm:px-6">
         <motion.div
