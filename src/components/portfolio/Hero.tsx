@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92vh] items-center pt-28 pb-16 sm:pt-32"
+      className="relative flex min-h-[92vh] flex-col items-center justify-center pt-28 pb-16 sm:pt-32"
     >
       <div className="relative mx-auto w-full max-w-5xl px-4 sm:px-6">
         <motion.div
@@ -42,7 +42,7 @@ export function Hero() {
               {focus.join("  ·  ")}
             </p>
 
-            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-6 w-full max-w-[700px] text-center text-[15px] leading-relaxed text-muted-foreground">
               Engineering student working across data analysis, machine learning and web
               development - building models, dashboards and small products end to end. I also do
               graphics and video work when a project needs it.
